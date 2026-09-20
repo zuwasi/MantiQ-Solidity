@@ -21,7 +21,7 @@ npm ci --ignore-scripts
 python demo.py serve
 ```
 
-Open http://127.0.0.1:8765/dashboard.html and select **Run local checks**.
+Open http://127.0.0.1:8879/dashboard.html and select **Run local checks**.
 The EVM runs in-process: no wallet, listening blockchain RPC, public chain, or real funds.
 The server listens only on loopback and rejects cross-origin run requests.
 

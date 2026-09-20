@@ -1,0 +1,643 @@
+{
+  "run_id": "20260920T101102Z-0bea42fd",
+  "created_at": "2026-09-20T10:11:02.570396+00:00",
+  "source": {
+    "revision": "1f9e81a428b0e35dc0c70529b5e08f00b593bd80",
+    "dirty": false,
+    "files": {
+      "contracts/DefectiveEscrow.sol": "bb81a03b08d41c89b83ac508b0c27ad4a6f4f112941e88dd8a54e0c60cb3c033",
+      "contracts/Escrow.sol": "7ac4cd70a41c37846604978b8837c59e0efc2882a6905ae7d658aca1013ecf87",
+      "contracts/TestActors.sol": "1607be3e6ba726a596c40f3c2a092c397ea66e1bddfe80bb56b6092c10bb30b9",
+      "demo.py": "9d80a1ededaed390431a25bfaf7681b3e6ac312cd85cfbed128dd760208152d4",
+      "lean/lakefile.toml": "e7297f5b526e23e235d782c4fea4ea702e05e9d11e9181441482c5cc44e99e1f",
+      "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+      "lean/MantiQEscrowModel.lean": "50bdb7310b0fb8ae65e9cc863f6cdf8e75a22e456cf8eabfeeee350585408585",
+      "package-lock.json": "c170e6c875d5fd8979236f79015e630eef40426f3cfa4a2356de46f5d7abcfa6",
+      "package.json": "ad7e3c11de0cb45772c46c53f593a80847ef934ffcaf34ff37485f8b75db89f4",
+      "scripts/evm.mjs": "35589d5233722eb6c2af189da0df003826e5895639caccf86734874e61cf4665",
+      "wolfram/check.wls": "56821fec7defb0238848d561e4306edff70ab14d3915ed47fcc9beca31fc5a8a"
+    }
+  },
+  "stages": [
+    {
+      "id": "evm",
+      "name": "Local EVM",
+      "status": "passed",
+      "summary": "12 checks; defect reproduced, fixed call rejected",
+      "details": {
+        "compiler": "0.8.37+commit.f401782d.Emscripten.clang",
+        "generated": {
+          "seed": 20260920,
+          "sequences": 20,
+          "actions": 108,
+          "successfulSettlements": 20
+        },
+        "checks": [
+          {
+            "name": "defective: identical intermediary call",
+            "passed": true
+          },
+          {
+            "name": "fixed: identical intermediary call",
+            "passed": true
+          },
+          {
+            "name": "unauthorized direct release and refund rejected",
+            "passed": true
+          },
+          {
+            "name": "release at deadline -1",
+            "passed": true
+          },
+          {
+            "name": "refund at deadline -1",
+            "passed": true
+          },
+          {
+            "name": "release at deadline +0",
+            "passed": true
+          },
+          {
+            "name": "refund at deadline +0",
+            "passed": true
+          },
+          {
+            "name": "release at deadline +1",
+            "passed": true
+          },
+          {
+            "name": "refund at deadline +1",
+            "passed": true
+          },
+          {
+            "name": "recipient failure rolls back state and funds",
+            "passed": true
+          },
+          {
+            "name": "invalid deployment terms rejected",
+            "passed": true
+          },
+          {
+            "name": "20 generated transaction sequences: state, conservation, single settlement",
+            "passed": true
+          }
+        ],
+        "scope": "Compiled fixtures on an in-process EVM, test ETH only"
+      },
+      "log_sha256": "4927d97f8d021c26d2ec64c187e4b0c37af7f9ed2d587112e4358ddc508f9769"
+    },
+    {
+      "id": "wolfram",
+      "name": "Wolfram",
+      "status": "passed",
+      "summary": "7,776 finite model cases; boundary checks passed",
+      "details": {
+        "Environment": {
+          "Version": "15.0.1 for Microsoft Windows (64-bit) (July 2, 2026)",
+          "VersionNumber": 15.0,
+          "System": "Microsoft Windows (64-bit)",
+          "ProcessorType": "x86-64"
+        },
+        "ModelParameters": {
+          "Buyer": 1,
+          "Seller": 2,
+          "Amount": 10,
+          "DeploymentTimestamp": 0,
+          "Deadline": 5
+        },
+        "Search": {
+          "CaseCount": 7776,
+          "States": [
+            "Funded",
+            "Released",
+            "Refunded"
+          ],
+          "Callers": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "Origins": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "Times": [
+            4,
+            5,
+            6
+          ]
+        },
+        "Checks": {
+          "UnauthorizedReleaseRejected": true,
+          "FailedCallsUnchanged": true,
+          "TerminalAbsorbing": true,
+          "ReleaseRefundTimeExclusive": true,
+          "Conservation": true,
+          "BoundaryChecks": true,
+          "DefectiveCounterexampleFound": true
+        },
+        "BoundaryEvidence": {
+          "4": {
+            "ReleaseState": "Released",
+            "RefundState": "Funded"
+          },
+          "5": {
+            "ReleaseState": "Funded",
+            "RefundState": "Refunded"
+          },
+          "6": {
+            "ReleaseState": "Funded",
+            "RefundState": "Refunded"
+          }
+        },
+        "DefectiveCounterexample": {
+          "Buyer": 1,
+          "Seller": 2,
+          "Caller": 3,
+          "Origin": 1,
+          "Now": 4,
+          "Deadline": 5,
+          "DefectiveState": "Released",
+          "FixedState": "Funded"
+        },
+        "AllPassed": true
+      },
+      "log_sha256": "d4dbd0b4134982c56d82dbae3a953192ff92d0d663e69b12bf8ed29ec6edd341"
+    },
+    {
+      "id": "lean",
+      "name": "Lean 4",
+      "status": "passed",
+      "summary": "6 model theorems built; no proof placeholders",
+      "details": {
+        "toolchain": "leanprover/lean4:v4.33.1",
+        "theorems": [
+          "unauthorized_release_rejected",
+          "failed_call_unchanged",
+          "terminal_absorbing",
+          "release_refund_time_exclusive",
+          "conservation",
+          "defective_origin_counterexample"
+        ],
+        "scope": "Abstract transition model only; no bytecode correspondence proof"
+      },
+      "log_sha256": "31da234bfb532d5d412798fc13e5b1d95ac91fa58156c6feb697b60d6a371c19"
+    },
+    {
+      "id": "olympix",
+      "name": "Olympix",
+      "status": "blocked",
+      "summary": "CLI scan not run; VS Code installation does not establish CLI access",
+      "details": {
+        "next": "Install official CLI, authenticate yourself, then run python demo.py run --olympix",
+        "privacy": "Opt-in sends synthetic Solidity sources to Olympix. No VS Code tokens are read."
+      }
+    },
+    {
+      "id": "sbomator",
+      "name": "ESL SBOMator",
+      "status": "findings",
+      "summary": "368 components; 8 reported vulnerabilities; inspect coverage",
+      "details": {
+        "components": 368,
+        "missing_direct_dependencies": [],
+        "direct_dependencies": [
+          {
+            "name": "ethers",
+            "version": "6.17.0"
+          },
+          {
+            "name": "fast-check",
+            "version": "4.10.2"
+          },
+          {
+            "name": "ganache",
+            "version": "7.9.2"
+          },
+          {
+            "name": "solc",
+            "version": "0.8.37"
+          }
+        ],
+        "unresolved_inventory_fields": 77,
+        "vulnerabilities_reported": 8,
+        "cve_coverage": {
+          "matched": 4,
+          "not_analyzed": 0,
+          "scanned_clean": 364
+        },
+        "database_sources": [
+          {
+            "components_covered": 371,
+            "database": {
+              "database_path": "AppData/Roaming/ESL/SBOMator/osv_local/osv.db",
+              "database_size": 181968896,
+              "ecosystem_stats": {
+                "Echo": 2,
+                "Go": 9193,
+                "Hex": 2,
+                "Maven": 6988,
+                "NuGet": 9,
+                "Packagist": 10,
+                "PyPI": 25512,
+                "RubyGems": 19,
+                "SwiftURL": 3,
+                "crates.io": 2804,
+                "npm": 228912
+              },
+              "severity_stats": {
+                "": 247190,
+                "CRITICAL": 4126,
+                "HIGH": 9888,
+                "LOW": 1245,
+                "MEDIUM": 10964,
+                "NONE": 41
+              },
+              "total_vulnerabilities": 273454
+            },
+            "name": "Local OSV database",
+            "reason": "",
+            "status": "completed"
+          },
+          {
+            "components_covered": 0,
+            "name": "Grype",
+            "reason": "Grype disabled by scan options",
+            "status": "skipped"
+          }
+        ],
+        "reported_vulnerability_ids": [
+          "GHSA-378V-28HJ-76WF",
+          "GHSA-5C6J-R48X-RMVQ",
+          "GHSA-76P7-773F-R4Q5",
+          "GHSA-95M3-7Q98-8XR5",
+          "GHSA-H9RV-JMMF-4PGX",
+          "GHSA-HXCC-F52P-WC94",
+          "GHSA-QJ8W-GFJ5-8C6V"
+        ],
+        "tools": {
+          "components": [
+            {
+              "type": "application",
+              "name": "ESL SBOMator",
+              "version": "1.4.8",
+              "publisher": "Engineering Software Lab (ESL)",
+              "externalReferences": [
+                {
+                  "type": "website",
+                  "url": "https://www.eswlab.com"
+                }
+              ]
+            },
+            {
+              "type": "application",
+              "name": "syft",
+              "version": "1.39.0",
+              "author": "anchore"
+            },
+            {
+              "type": "application",
+              "name": "cdxgen",
+              "group": "@cyclonedx",
+              "version": "12.0.0",
+              "publisher": "OWASP Foundation",
+              "purl": "pkg:npm/%40cyclonedx/cdxgen@12.0.0",
+              "bom-ref": "pkg:npm/@cyclonedx/cdxgen@12.0.0"
+            }
+          ]
+        },
+        "limitations": [
+          "Offline local database; no fresh online advisories.",
+          "Grype re-scan disabled explicitly; no Solidity semantic or solc-advisory coverage promised.",
+          "Missing or not-analyzed dependencies are not scanned-clean.",
+          "Development tooling inventory, not an on-chain runtime dependency list."
+        ]
+      },
+      "log_sha256": "39f4e27e07bdab71887b856918d875c7faf809eff1b062ff6d37e64bfccaa2a4"
+    }
+  ],
+  "evm": {
+    "compiler": "0.8.37+commit.f401782d.Emscripten.clang",
+    "engine": "Ganache 7.9.2, in-process EVM",
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "shanghai",
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode.object"
+          ]
+        }
+      }
+    },
+    "checks": [
+      {
+        "name": "defective: identical intermediary call",
+        "passed": true
+      },
+      {
+        "name": "fixed: identical intermediary call",
+        "passed": true
+      },
+      {
+        "name": "unauthorized direct release and refund rejected",
+        "passed": true
+      },
+      {
+        "name": "release at deadline -1",
+        "passed": true
+      },
+      {
+        "name": "refund at deadline -1",
+        "passed": true
+      },
+      {
+        "name": "release at deadline +0",
+        "passed": true
+      },
+      {
+        "name": "refund at deadline +0",
+        "passed": true
+      },
+      {
+        "name": "release at deadline +1",
+        "passed": true
+      },
+      {
+        "name": "refund at deadline +1",
+        "passed": true
+      },
+      {
+        "name": "recipient failure rolls back state and funds",
+        "passed": true
+      },
+      {
+        "name": "invalid deployment terms rejected",
+        "passed": true
+      },
+      {
+        "name": "20 generated transaction sequences: state, conservation, single settlement",
+        "passed": true
+      }
+    ],
+    "scenario": {
+      "amount": "10",
+      "units": "test ETH",
+      "precondition": "Buyer signs a call to an untrusted intermediary; supplier is fixed.",
+      "defective": {
+        "state": "Released",
+        "escrow": "0.0",
+        "sellerDelta": "10.0",
+        "txHash": "0x8da0dd818743abd36a123f63266cddcf64bc2543358736953231a742f490a32f",
+        "status": 1
+      },
+      "fixed": {
+        "state": "Funded",
+        "escrow": "10.0",
+        "sellerDelta": "0.0",
+        "txHash": "0xc13aef4a955f74564c954962fdf02a8ebdfec4a67152893e215063570e337657",
+        "status": 0
+      }
+    },
+    "generated": {
+      "seed": 20260920,
+      "sequences": 20,
+      "actions": 108,
+      "successfulSettlements": 20
+    },
+    "artifacts": {
+      "DefectiveEscrow": {
+        "source": "DefectiveEscrow.sol",
+        "bytecodeSha256": "b0b72d32689c5a12fa852458ef42e8ca6e55a716e8dcb1706b0fed94b3fa0283"
+      },
+      "Escrow": {
+        "source": "Escrow.sol",
+        "bytecodeSha256": "83e4de544491b9cf37fdd0df926e30095e1538fadeb68311d8bba041da047934"
+      },
+      "Intermediary": {
+        "source": "TestActors.sol",
+        "bytecodeSha256": "d4ca1f674e81567b6b89cf33dd9f7f8bc62eebaecfae91f4c64e3acecaf78b92"
+      },
+      "RejectingSupplier": {
+        "source": "TestActors.sol",
+        "bytecodeSha256": "170b2a2099c0aaaeede623e6b129f13137d2318b82b717b30165a53d86c0d72e"
+      }
+    }
+  },
+  "scenario": {
+    "amount": "10",
+    "units": "test ETH",
+    "precondition": "Buyer signs a call to an untrusted intermediary; supplier is fixed.",
+    "defective": {
+      "state": "Released",
+      "escrow": "0.0",
+      "sellerDelta": "10.0",
+      "txHash": "0x8da0dd818743abd36a123f63266cddcf64bc2543358736953231a742f490a32f",
+      "status": 1
+    },
+    "fixed": {
+      "state": "Funded",
+      "escrow": "10.0",
+      "sellerDelta": "0.0",
+      "txHash": "0xc13aef4a955f74564c954962fdf02a8ebdfec4a67152893e215063570e337657",
+      "status": 0
+    }
+  },
+  "wolfram": {
+    "Environment": {
+      "Version": "15.0.1 for Microsoft Windows (64-bit) (July 2, 2026)",
+      "VersionNumber": 15.0,
+      "System": "Microsoft Windows (64-bit)",
+      "ProcessorType": "x86-64"
+    },
+    "ModelParameters": {
+      "Buyer": 1,
+      "Seller": 2,
+      "Amount": 10,
+      "DeploymentTimestamp": 0,
+      "Deadline": 5
+    },
+    "Search": {
+      "CaseCount": 7776,
+      "States": [
+        "Funded",
+        "Released",
+        "Refunded"
+      ],
+      "Callers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "Origins": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "Times": [
+        4,
+        5,
+        6
+      ]
+    },
+    "Checks": {
+      "UnauthorizedReleaseRejected": true,
+      "FailedCallsUnchanged": true,
+      "TerminalAbsorbing": true,
+      "ReleaseRefundTimeExclusive": true,
+      "Conservation": true,
+      "BoundaryChecks": true,
+      "DefectiveCounterexampleFound": true
+    },
+    "BoundaryEvidence": {
+      "4": {
+        "ReleaseState": "Released",
+        "RefundState": "Funded"
+      },
+      "5": {
+        "ReleaseState": "Funded",
+        "RefundState": "Refunded"
+      },
+      "6": {
+        "ReleaseState": "Funded",
+        "RefundState": "Refunded"
+      }
+    },
+    "DefectiveCounterexample": {
+      "Buyer": 1,
+      "Seller": 2,
+      "Caller": 3,
+      "Origin": 1,
+      "Now": 4,
+      "Deadline": 5,
+      "DefectiveState": "Released",
+      "FixedState": "Funded"
+    },
+    "AllPassed": true
+  },
+  "sbomator": {
+    "components": 368,
+    "missing_direct_dependencies": [],
+    "direct_dependencies": [
+      {
+        "name": "ethers",
+        "version": "6.17.0"
+      },
+      {
+        "name": "fast-check",
+        "version": "4.10.2"
+      },
+      {
+        "name": "ganache",
+        "version": "7.9.2"
+      },
+      {
+        "name": "solc",
+        "version": "0.8.37"
+      }
+    ],
+    "unresolved_inventory_fields": 77,
+    "vulnerabilities_reported": 8,
+    "cve_coverage": {
+      "matched": 4,
+      "not_analyzed": 0,
+      "scanned_clean": 364
+    },
+    "database_sources": [
+      {
+        "components_covered": 371,
+        "database": {
+          "database_path": "AppData/Roaming/ESL/SBOMator/osv_local/osv.db",
+          "database_size": 181968896,
+          "ecosystem_stats": {
+            "Echo": 2,
+            "Go": 9193,
+            "Hex": 2,
+            "Maven": 6988,
+            "NuGet": 9,
+            "Packagist": 10,
+            "PyPI": 25512,
+            "RubyGems": 19,
+            "SwiftURL": 3,
+            "crates.io": 2804,
+            "npm": 228912
+          },
+          "severity_stats": {
+            "": 247190,
+            "CRITICAL": 4126,
+            "HIGH": 9888,
+            "LOW": 1245,
+            "MEDIUM": 10964,
+            "NONE": 41
+          },
+          "total_vulnerabilities": 273454
+        },
+        "name": "Local OSV database",
+        "reason": "",
+        "status": "completed"
+      },
+      {
+        "components_covered": 0,
+        "name": "Grype",
+        "reason": "Grype disabled by scan options",
+        "status": "skipped"
+      }
+    ],
+    "reported_vulnerability_ids": [
+      "GHSA-378V-28HJ-76WF",
+      "GHSA-5C6J-R48X-RMVQ",
+      "GHSA-76P7-773F-R4Q5",
+      "GHSA-95M3-7Q98-8XR5",
+      "GHSA-H9RV-JMMF-4PGX",
+      "GHSA-HXCC-F52P-WC94",
+      "GHSA-QJ8W-GFJ5-8C6V"
+    ],
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "ESL SBOMator",
+          "version": "1.4.8",
+          "publisher": "Engineering Software Lab (ESL)",
+          "externalReferences": [
+            {
+              "type": "website",
+              "url": "https://www.eswlab.com"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "name": "syft",
+          "version": "1.39.0",
+          "author": "anchore"
+        },
+        {
+          "type": "application",
+          "name": "cdxgen",
+          "group": "@cyclonedx",
+          "version": "12.0.0",
+          "publisher": "OWASP Foundation",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@12.0.0",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@12.0.0"
+        }
+      ]
+    },
+    "limitations": [
+      "Offline local database; no fresh online advisories.",
+      "Grype re-scan disabled explicitly; no Solidity semantic or solc-advisory coverage promised.",
+      "Missing or not-analyzed dependencies are not scanned-clean.",
+      "Development tooling inventory, not an on-chain runtime dependency list."
+    ]
+  },
+  "completed_at": "2026-09-20T10:13:15.857259+00:00"
+}

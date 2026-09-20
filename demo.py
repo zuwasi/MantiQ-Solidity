@@ -369,6 +369,8 @@ def run_demo(*, olympix=False, progress=lambda result: None):
 
 
 class DemoServer(ThreadingHTTPServer):
+    allow_reuse_address = False
+
     def __init__(self, port, olympix=False):
         super().__init__(("127.0.0.1", port), partial(Handler, directory=str(WEB)))
         self.lock = threading.Lock()
@@ -466,7 +468,7 @@ def main():
         action="store_true",
         help="Explicitly enable remote Olympix scan of synthetic contracts",
     )
-    parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--port", type=int, default=8879)
     args = parser.parse_args()
     if args.action == "run":
         result = run_demo(olympix=args.olympix)
@@ -492,8 +494,10 @@ def main():
         print("Exported summary only. Raw third-party reports and logs remain local.")
         return 0
     server = DemoServer(args.port, args.olympix)
-    print(f"Dashboard: http://127.0.0.1:{args.port}/dashboard.html", flush=True)
-    print(f"Presentation: http://127.0.0.1:{args.port}/", flush=True)
+    print(
+        f"Dashboard: http://127.0.0.1:{server.server_port}/dashboard.html", flush=True
+    )
+    print(f"Presentation: http://127.0.0.1:{server.server_port}/", flush=True)
     server.serve_forever()
     return 0
 

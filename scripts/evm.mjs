@@ -338,7 +338,7 @@ const artifacts = Object.fromEntries(
         {
           source: file,
           bytecodeSha256: createHash("sha256")
-            .update(c.evm.bytecode.object)
+            .update(Buffer.from(c.evm.bytecode.object, "hex"))
             .digest("hex"),
         },
       ]),
