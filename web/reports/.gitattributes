@@ -1,0 +1,2 @@
+# Preserve the recorded report's original bytes, including line endings.
+sbomator-report.html -text
