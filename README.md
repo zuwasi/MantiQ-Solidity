@@ -8,6 +8,7 @@ This is not an audit, production escrow, or a claim that AI happened to produce 
 
 - Presentation: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/
 - Automated evidence tour: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/dashboard.html?autoplay=1
+- Silent 32-second tour recording: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/assets/demo-tour.webm
 - Source: https://github.com/zuwasi/MantiQ-Solidity
 
 ## Start locally

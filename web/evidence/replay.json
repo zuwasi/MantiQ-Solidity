@@ -1,20 +1,20 @@
 {
-  "run_id": "20260920T101102Z-0bea42fd",
-  "created_at": "2026-09-20T10:11:02.570396+00:00",
+  "run_id": "20260920T101800Z-2d168abc",
+  "created_at": "2026-09-20T10:18:00.353141+00:00",
   "source": {
-    "revision": "1f9e81a428b0e35dc0c70529b5e08f00b593bd80",
+    "revision": "8ff48e756d1d233344ed37599b4125441c14ea50",
     "dirty": false,
     "files": {
       "contracts/DefectiveEscrow.sol": "bb81a03b08d41c89b83ac508b0c27ad4a6f4f112941e88dd8a54e0c60cb3c033",
       "contracts/Escrow.sol": "7ac4cd70a41c37846604978b8837c59e0efc2882a6905ae7d658aca1013ecf87",
       "contracts/TestActors.sol": "1607be3e6ba726a596c40f3c2a092c397ea66e1bddfe80bb56b6092c10bb30b9",
-      "demo.py": "9d80a1ededaed390431a25bfaf7681b3e6ac312cd85cfbed128dd760208152d4",
+      "demo.py": "25413db303fe8a69c328efda8c3d8f7645ad552e1f89094f892c975644b300df",
       "lean/lakefile.toml": "e7297f5b526e23e235d782c4fea4ea702e05e9d11e9181441482c5cc44e99e1f",
       "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
       "lean/MantiQEscrowModel.lean": "50bdb7310b0fb8ae65e9cc863f6cdf8e75a22e456cf8eabfeeee350585408585",
       "package-lock.json": "c170e6c875d5fd8979236f79015e630eef40426f3cfa4a2356de46f5d7abcfa6",
       "package.json": "ad7e3c11de0cb45772c46c53f593a80847ef934ffcaf34ff37485f8b75db89f4",
-      "scripts/evm.mjs": "35589d5233722eb6c2af189da0df003826e5895639caccf86734874e61cf4665",
+      "scripts/evm.mjs": "a74888a0a18c3af8a7ca8e8a7580f01d5473112d0308f63f114c51e9169e18f5",
       "wolfram/check.wls": "56821fec7defb0238848d561e4306edff70ab14d3915ed47fcc9beca31fc5a8a"
     }
   },
@@ -84,7 +84,7 @@
         ],
         "scope": "Compiled fixtures on an in-process EVM, test ETH only"
       },
-      "log_sha256": "4927d97f8d021c26d2ec64c187e4b0c37af7f9ed2d587112e4358ddc508f9769"
+      "log_sha256": "c03c1be5085dd8ebe335353ba8360e98e7ed3117ede0f15af31866e9d970cdc6"
     },
     {
       "id": "wolfram",
@@ -165,7 +165,7 @@
         },
         "AllPassed": true
       },
-      "log_sha256": "d4dbd0b4134982c56d82dbae3a953192ff92d0d663e69b12bf8ed29ec6edd341"
+      "log_sha256": "79f95f4820401964941ea6a74d1041645b8244fd72f2db00539ddaea8581e354"
     },
     {
       "id": "lean",
@@ -316,7 +316,7 @@
           "Development tooling inventory, not an on-chain runtime dependency list."
         ]
       },
-      "log_sha256": "39f4e27e07bdab71887b856918d875c7faf809eff1b062ff6d37e64bfccaa2a4"
+      "log_sha256": "f2be9a3e8adb2dfcd911a347972dab1f03002ab4bf38d85d6c406213425d34c8"
     }
   ],
   "evm": {
@@ -415,19 +415,19 @@
     "artifacts": {
       "DefectiveEscrow": {
         "source": "DefectiveEscrow.sol",
-        "bytecodeSha256": "b0b72d32689c5a12fa852458ef42e8ca6e55a716e8dcb1706b0fed94b3fa0283"
+        "bytecodeSha256": "fa8fb3855ef5df3a8bd5a41a5a3d71ed7f11731e7a3a81157ac7587ff535b68c"
       },
       "Escrow": {
         "source": "Escrow.sol",
-        "bytecodeSha256": "83e4de544491b9cf37fdd0df926e30095e1538fadeb68311d8bba041da047934"
+        "bytecodeSha256": "14c693db524e91a515c6e5b7242b8f8a81a5206f840dac6e38c31cbd8c7ebac6"
       },
       "Intermediary": {
         "source": "TestActors.sol",
-        "bytecodeSha256": "d4ca1f674e81567b6b89cf33dd9f7f8bc62eebaecfae91f4c64e3acecaf78b92"
+        "bytecodeSha256": "4fb1b196f3f6d9b9db25185596aba7abd44a2ba2570e2b11ee81ce544772119b"
       },
       "RejectingSupplier": {
         "source": "TestActors.sol",
-        "bytecodeSha256": "170b2a2099c0aaaeede623e6b129f13137d2318b82b717b30165a53d86c0d72e"
+        "bytecodeSha256": "795c2b318e35269404ee38f93fdce24e01d072cb57635c164e416de79d4509c6"
       }
     }
   },
@@ -639,5 +639,5 @@
       "Development tooling inventory, not an on-chain runtime dependency list."
     ]
   },
-  "completed_at": "2026-09-20T10:13:15.857259+00:00"
+  "completed_at": "2026-09-20T10:20:13.775242+00:00"
 }
