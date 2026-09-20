@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-09-20T15:33:29.761865+00:00",
+  "method": "SBOMator reviewed-evidence enrichment; licenses only, no CVE rescan",
+  "original_run_id": "20260920T101800Z-2d168abc",
+  "original_sbom_sha256": "132443cac80d38bdd537d1c4a424221517a94989184726d9be7e41aacd20feee",
+  "original_report_sha256": "ec00b26d0aa0e8362905cb97a451a8fc85c44e714e9c459823083f36b346ffc9",
+  "corrected_sbom_sha256": "c379c312e800db24bea6a3f1e139ff1a3558df3817c5d32e640c0bf27654029c",
+  "corrected_report_sha256": "54aff2b7c47308aa10f2ef3ddd868557f7d6783c689326a9b4dd94fa53fd3089",
+  "license_evidence_sha256": "c3a585e12a609f32314caab55d46aa74bc5567cb3e02cc2fa3d6a0a377725d5e",
+  "licenses_resolved": 77,
+  "missing_licenses_before": 77,
+  "missing_licenses_after": 0,
+  "components": 368,
+  "vulnerability_records": 8,
+  "quality_status": "passed",
+  "schema_errors": [],
+  "vex_schema_errors": [],
+  "inventory_and_vulnerabilities_preserved": true,
+  "limitations": [
+    "Publisher-declared licenses, not a legal compliance assessment.",
+    "Original offline vulnerability findings retained; no fresh CVE scan.",
+    "uws-js-unofficial has shortened SBOM version 20.30.0; exact resolved artifact 20.30.0-unofficial.0 and SHA-512 establish its Apache-2.0 license. Version and existing CVE assessment were not corrected.",
+    "Future local scans are separate; this is a reviewed, dated report."
+  ]
+}

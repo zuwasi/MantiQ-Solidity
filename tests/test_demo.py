@@ -1,3 +1,5 @@
+from collections import Counter
+import hashlib
 import http.client
 import json
 import threading
@@ -50,6 +52,38 @@ class InventoryTests(unittest.TestCase):
         self.assertEqual(result["cve_coverage"]["not_analyzed"], 7)
         self.assertEqual(result["unresolved_inventory_fields"], 3)
         self.assertEqual(result["reported_vulnerability_ids"], ["TEST-NOT-REAL"])
+
+    def test_published_license_evidence(self):
+        sbom = demo.load(demo.WEB / "reports/sbomator.cdx.json")
+        corrections = demo.load(demo.WEB / "evidence/license-evidence.json")
+        audit = demo.load(demo.WEB / "evidence/license-enrichment.json")
+        replay = demo.load(demo.WEB / "evidence/replay.json")
+        components = {c["bom-ref"]: c for c in sbom["components"]}
+        self.assertEqual(len(components), 368)
+        self.assertTrue(all(c.get("licenses") for c in components.values()))
+        self.assertEqual(len({c["component_ref"] for c in corrections}), 77)
+        self.assertEqual(
+            Counter(c["licenses"][0]["license"]["id"] for c in corrections),
+            {"MIT": 70, "Apache-2.0": 3, "BSD-3-Clause": 3, "ISC": 1},
+        )
+        for correction in corrections:
+            self.assertEqual(
+                components[correction["component_ref"]]["licenses"],
+                correction["licenses"],
+            )
+        self.assertEqual(len(sbom["vulnerabilities"]), 8)
+        self.assertEqual(len({v["id"] for v in sbom["vulnerabilities"]}), 7)
+        self.assertEqual(replay["sbomator"]["unresolved_inventory_fields"], 0)
+        self.assertEqual(replay["license_enrichment"], audit)
+        for path, key in (
+            ("reports/sbomator.cdx.json", "corrected_sbom_sha256"),
+            ("reports/sbomator-report.html", "corrected_report_sha256"),
+            ("reports/sbomator-report-original.html", "original_report_sha256"),
+            ("evidence/license-evidence.json", "license_evidence_sha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((demo.WEB / path).read_bytes()).hexdigest(), audit[key]
+            )
 
 
 class ServerTests(unittest.TestCase):

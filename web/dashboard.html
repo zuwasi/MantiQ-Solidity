@@ -199,6 +199,9 @@
       .muted {
         color: var(--u);
       }
+      .muted a {
+        color: var(--m);
+      }
       @media (max-width: 800px) {
         header {
           align-items: flex-start;
@@ -253,6 +256,12 @@
             >SBOMator report · 20 Sep 2026 ↗</a
           >
         </div>
+        <p class="muted">
+          The linked report includes reviewed license enrichment: 77 gaps
+          resolved, 0 missing licenses. Existing vulnerability findings remain.
+          This dated report is separate from later local scans.
+          <a href="evidence/license-enrichment.json">Enrichment audit</a>
+        </p>
       </section>
       <section class="grid">
         <article class="panel bad">

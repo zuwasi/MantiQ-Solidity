@@ -130,12 +130,36 @@ typography falls back to system sans-serif if Google Fonts is unavailable.
 `docs/presenter-notes.md` gives the 10-15 minute script and brochure/image sources.
 
 Slides 9-12 explain SBOMator and show the actual report, findings, and dependency
-graph. `web/reports/sbomator-report.html` is the unchanged HTML report from the
-20 September 2026 recorded run, reviewed for publication. It is a fixed historical
-artifact, not automatically replaced by later local scans. It reports seven unique
-GHSA IDs across eight component-level vulnerability records and four affected
-package/version entries; 77 missing-license fields block its quality gate.
-The offline database, disabled Grype scan, and development-toolchain scope remain explicit.
+graph. `web/reports/sbomator-report.html` is the license-enriched report derived from
+the 20 September 2026 recorded scan. All 77 missing licenses were resolved from
+publisher declarations: 70 MIT, three Apache-2.0, three BSD-3-Clause, and one ISC.
+All 368 components now have licenses; the inventory quality gate passes. This is
+metadata completeness, not legal clearance or a clean vulnerability verdict.
+The seven unique GHSA IDs, eight vulnerability records, component identities,
+versions, and dependency relationships are unchanged. No CVE scan was rerun.
+
+`web/evidence/license-evidence.json` retains the 77 exact-release citations and
+response hashes. One component has a shortened SBOM version: uws-js-unofficial
+20.30.0. Its recorded tarball URL and SHA-512 match release 20.30.0-unofficial.0,
+whose installed manifest, license file, and registry declare Apache-2.0. The version
+discrepancy and original CVE assessment remain unresolved, not silently corrected.
+`web/evidence/license-enrichment.json` records the enrichment and artifact hashes;
+`web/reports/sbomator.cdx.json` is the corrected machine-readable inventory.
+`web/reports/sbomator-report-original.html` preserves the original report unchanged.
+
+Reproduce the report with the separately installed SBOMator and reviewed evidence
+(choose a new output filename; the tool refuses to overwrite existing artifacts):
+
+```powershell
+Set-Location C:\Sbomator_1.4.x
+python -B tools\enrich_existing_sbom.py C:\Amp_demos\MantiQ-Solidity\runs\20260920T101800Z-2d168abc\sbom.cdx.json --evidence C:\Amp_demos\MantiQ-Solidity\web\evidence\license-evidence.json --output C:\Amp_demos\MantiQ-Solidity\runs\sbom-licensed-repeat.cdx.json --report
+```
+
+The raw scan remains local. The linked report is a dated artifact, not automatically
+replaced by later local scans. `demo.py export` replaces the replay with a raw run;
+review and reapply enrichment before republishing it. Fresh offline scans can still
+have unresolved licenses. The offline vulnerability database, disabled Grype scan,
+and development-toolchain scope remain explicit.
 
 `web/dashboard.html` can run on GitHub Pages without Python. That is **recorded
 evidence replay**, not a live scan or EVM. Play/pause/step/reset animate the evidence

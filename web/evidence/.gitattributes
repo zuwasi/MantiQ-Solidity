@@ -1,0 +1,2 @@
+# Keep the byte hashes recorded by the license-enrichment audit portable.
+*.json -text

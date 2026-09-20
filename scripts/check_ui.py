@@ -28,6 +28,11 @@ def main():
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        if not args.live:
+            page.route(
+                "**/api/status",
+                lambda route: route.fulfill(status=404, body="static replay"),
+            )
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(args.url + "/")
@@ -80,16 +85,20 @@ def main():
         report = report_popup.value
         report.wait_for_load_state()
         expect(report.get_by_role("heading", name="368", exact=True)).to_be_visible()
-        expect(report.locator("body")).to_contain_text(
-            "77 component(s) with missing licenses"
+        expect(report.locator("body")).not_to_contain_text("SBOM DATA QUALITY WARNING")
+        report.locator("#componentFilter").press_sequentially("@webassemblyjs/leb128")
+        expect(report.locator("#componentsTable tbody tr:visible")).to_have_count(1)
+        expect(report.locator("#componentsTable tbody tr:visible")).to_contain_text(
+            "Apache-2.0"
         )
+        report.locator("#componentFilter").fill("")
         report.locator("#componentFilter").press_sequentially("serialize-javascript")
         visible_rows = report.locator("#componentsTable tbody tr:visible")
         expect(visible_rows).to_have_count(1)
         expect(visible_rows).to_contain_text("6.0.0")
         graph = report.locator("section.ig")
         node = graph.locator('.ig-node[aria-label="@adraffy/ens-normalize"]')
-        # The unchanged report supports keyboard activation; mouse selection
+        # The report supports keyboard activation; mouse selection
         # does not update its panel reliably in this browser.
         node.press("Enter")
         expect(graph.locator(".ig-panel")).to_contain_text("@adraffy/ens-normalize")

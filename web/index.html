@@ -878,7 +878,7 @@
         <div class="eyebrow">
           The actual MantiQ-Solidity report · 20 September 2026
         </div>
-        <h2>Show the report, including its warnings.</h2>
+        <h2>77 license gaps resolved with evidence.</h2>
         <div class="split">
           <div>
             <div class="stats">
@@ -889,7 +889,7 @@
                 <strong>7</strong><span>unique advisories</span>
               </div>
               <div class="stat">
-                <strong>77</strong><span>missing licenses</span>
+                <strong>0</strong><span>missing licenses</span>
               </div>
             </div>
             <p>
@@ -897,10 +897,11 @@
               Ganache, and fast-check. Transitive development packages are
               included.
             </p>
-            <p class="warning">
-              <strong>Quality gate: BLOCKED.</strong> Missing license evidence
-              is not a license violation finding. It is missing evidence
-              requiring review.
+            <p>
+              <strong>Inventory quality gate: PASSED.</strong> All 368
+              components now have declared licenses. Exact-release metadata and
+              artifact evidence resolved the offline gaps; no warning was
+              hidden.
             </p>
             <a
               class="cta"
@@ -910,8 +911,11 @@
               >Explore the full HTML report ↗</a
             >
             <p class="note">
-              Original report, unchanged. Local OSV snapshot; Grype disabled. No
-              fresh online advisory or Solidity-semantic coverage is claimed.
+              License enrichment only; all 8 vulnerability records remain.
+              <a href="evidence/license-evidence.json">77 source citations</a> ·
+              <a href="reports/sbomator-report-original.html">Original report</a
+              >. Declared licenses are not a legal compliance verdict. No fresh
+              CVE scan.
             </p>
           </div>
           <figure class="capture">
@@ -921,7 +925,7 @@
               rel="noopener noreferrer"
               ><img
                 src="assets/sbomator-report-overview.png"
-                alt="Actual SBOMator report overview showing 368 components, four vulnerable components, seven advisory IDs and a missing-license warning"
+                alt="License-enriched SBOMator report showing 368 components and seven advisory IDs without the missing-license warning"
             /></a>
             <figcaption>
               Real SBOMator 1.4.8 output for MantiQ-Solidity, not a product
@@ -1074,7 +1078,11 @@
           >Download evidence JSON</a
         >
         <p class="note">
-          The SBOMator report is preserved byte-for-byte from the recorded run.
+          The report adds verified license declarations to the recorded
+          inventory.
+          <a href="evidence/license-enrichment.json">Enrichment audit</a> ·
+          <a href="reports/sbomator.cdx.json">CycloneDX SBOM</a>. The original
+          report remains available; vulnerability findings are unchanged.
           Third-party products and brand marks retain their own rights;
           inclusion does not imply endorsement.
         </p>

@@ -1,2 +1,3 @@
-# Preserve the recorded report's original bytes, including line endings.
-sbomator-report.html -text
+# Preserve report and SBOM checksums, including original line endings.
+*.html -text
+*.json -text

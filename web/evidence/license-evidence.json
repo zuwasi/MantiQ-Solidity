@@ -1,0 +1,1470 @@
+[
+  {
+    "component_ref": "pkg:npm/@discoveryjs/json-ext@0.5.7",
+    "source": "https://registry.npmjs.org/%40discoveryjs%2Fjson-ext/0.5.7",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@discoveryjs/json-ext",
+      "registry_version": "0.5.7",
+      "sbom_version": "0.5.7",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "8099e2f1324f0a4ecd37d603c1591df8bd778441dad0588aa455127a8d38ea74",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@jridgewell/set-array@1.1.2",
+    "source": "https://registry.npmjs.org/%40jridgewell%2Fset-array/1.1.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@jridgewell/set-array",
+      "registry_version": "1.1.2",
+      "sbom_version": "1.1.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "c7f4b6504ea0e79cd5084f504cfd4a06b2eed55951690f19a4d8e7f78690d570",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@microsoft/api-extractor@7.20.1",
+    "source": "https://registry.npmjs.org/%40microsoft%2Fapi-extractor/7.20.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@microsoft/api-extractor",
+      "registry_version": "7.20.1",
+      "sbom_version": "7.20.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "0d74f5be748f1b591dc76bb2071fdf9aa2c5974f35914632a77995ba16479996",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@microsoft/api-extractor-model@7.16.0",
+    "source": "https://registry.npmjs.org/%40microsoft%2Fapi-extractor-model/7.16.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@microsoft/api-extractor-model",
+      "registry_version": "7.16.0",
+      "sbom_version": "7.16.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "d90993bc0581f58101c288db9b614bb88f1927d4ec6938d842da1f77c1e76333",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@microsoft/tsdoc@0.13.2",
+    "source": "https://registry.npmjs.org/%40microsoft%2Ftsdoc/0.13.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@microsoft/tsdoc",
+      "registry_version": "0.13.2",
+      "sbom_version": "0.13.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "87151c3cc36ee4c14ad9ccaad18c8f2699b029a83e1ce5aa12433b8c7d1d5eb8",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@microsoft/tsdoc-config@0.15.2",
+    "source": "https://registry.npmjs.org/%40microsoft%2Ftsdoc-config/0.15.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@microsoft/tsdoc-config",
+      "registry_version": "0.15.2",
+      "sbom_version": "0.15.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "5f5102f4e668721e1f5c8382939fa0203761bfb5ad66ce4ada18a1eba34daf60",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@rushstack/node-core-library@3.45.1",
+    "source": "https://registry.npmjs.org/%40rushstack%2Fnode-core-library/3.45.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@rushstack/node-core-library",
+      "registry_version": "3.45.1",
+      "sbom_version": "3.45.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "e5eaff09293254e4906d0f1bb15f1571e0b877085a8e5919259eca88bea9134f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@rushstack/rig-package@0.3.8",
+    "source": "https://registry.npmjs.org/%40rushstack%2Frig-package/0.3.8",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@rushstack/rig-package",
+      "registry_version": "0.3.8",
+      "sbom_version": "0.3.8",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "ce448f3888ce576b651fe00027bcb343edd190f2a320e6da41a991969a079705",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@rushstack/ts-command-line@4.10.7",
+    "source": "https://registry.npmjs.org/%40rushstack%2Fts-command-line/4.10.7",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@rushstack/ts-command-line",
+      "registry_version": "4.10.7",
+      "sbom_version": "4.10.7",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "421acc2f2e327783a29be68c087ec5f1b0ecaeecad35855204c6ee9267fbe789",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@types/argparse@1.0.38",
+    "source": "https://registry.npmjs.org/%40types%2Fargparse/1.0.38",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@types/argparse",
+      "registry_version": "1.0.38",
+      "sbom_version": "1.0.38",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "d7e2a14def0a6405f5c4367bd4a0c91240c1c7022914a2c2338255d1a7fc60fa",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@types/eslint@8.4.10",
+    "source": "https://registry.npmjs.org/%40types%2Feslint/8.4.10",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@types/eslint",
+      "registry_version": "8.4.10",
+      "sbom_version": "8.4.10",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "d6336c7f91c24077c22ca9e1495f9e29d6eaab9cb63c7c5815266089c7a7709f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@types/eslint-scope@3.7.4",
+    "source": "https://registry.npmjs.org/%40types%2Feslint-scope/3.7.4",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@types/eslint-scope",
+      "registry_version": "3.7.4",
+      "sbom_version": "3.7.4",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "5e91f226e77d1fa98e4fae637975db820b73a0ac30fe0581b9d6f2a90d78bc41",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@ungap/promise-all-settled@1.1.2",
+    "source": "https://registry.npmjs.org/%40ungap%2Fpromise-all-settled/1.1.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "ISC"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@ungap/promise-all-settled",
+      "registry_version": "1.1.2",
+      "sbom_version": "1.1.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "d1b53c9007e8d1d5e2f12eeed00b7472336c2f06ac14c17e89e2633953c8de2e",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/ast@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fast/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/ast",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "4df3dcb78967e95920d5d72c670c2cba6d8c47665d3a8dce9a918c5bdea47328",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/floating-point-hex-parser@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Ffloating-point-hex-parser/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/floating-point-hex-parser",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "25031fdbc753369e2f05e235829d6aac8e5de52e7ade91bb5d7d64c48c3af69b",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/helper-api-error@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fhelper-api-error/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/helper-api-error",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "9089e3d46587c3ec8f260e997c78ce50145b88a506f54f36354f3f5cb267d118",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/helper-buffer@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fhelper-buffer/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/helper-buffer",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "3c7fe4132658a4911f30f14830ddf52154cc50d53b8d435a0c2c29436b9222d2",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/helper-numbers@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fhelper-numbers/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/helper-numbers",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "a7c476fee127b44b64f626db2cd9ac7af95db64290a93e72043d91e4ac94a86b",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/helper-wasm-bytecode@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fhelper-wasm-bytecode/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/helper-wasm-bytecode",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "2ced8268b2141c2da996782012cecc2deab35da119a9f26953b84272ed8d7a04",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/helper-wasm-section@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fhelper-wasm-section/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/helper-wasm-section",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "5629ae7a739245ff53f406f9e988ffc0c51f0385c49139d1d84793f20c24bfd4",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/ieee754@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fieee754/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/ieee754",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "675051d0cad6025b2df208265d20f7b702a7dbcff4bd96b1bd63f1eafc5e9ed4",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/leb128@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fleb128/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "Apache-2.0"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/leb128",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "bf3823982ca62350da5b8e467373c0ab405a9dd13d9c8bb4a12edfe9c539a54b",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/utf8@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Futf8/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/utf8",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "2ba512f3ced016df997d2ed5d36167d46ce88efc9a79ee230ff927242c5f8269",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/wasm-edit@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fwasm-edit/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/wasm-edit",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "50553592b62b07e1984c91d193d4439aff817e10db37796fce577bf4814fd442",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/wasm-gen@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fwasm-gen/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/wasm-gen",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "d331291b95321b85ccb72224a384930eea602ffd2758da5a2a101148675352ef",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/wasm-opt@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fwasm-opt/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/wasm-opt",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "21571b47b6ee64b449888e691868e83c956cd06e96fb8c2f31d852127ed780eb",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/wasm-parser@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fwasm-parser/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/wasm-parser",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "4186f1adb5993c541609392edc54e08759acc454e95c72fe9ff65fc5d4bdbe34",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webassemblyjs/wast-printer@1.11.1",
+    "source": "https://registry.npmjs.org/%40webassemblyjs%2Fwast-printer/1.11.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webassemblyjs/wast-printer",
+      "registry_version": "1.11.1",
+      "sbom_version": "1.11.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "aeff08b7b4e8b08ca559ea245b0bbfb73fd15995f3946fc57454d7b11edf1095",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webpack-cli/configtest@1.2.0",
+    "source": "https://registry.npmjs.org/%40webpack-cli%2Fconfigtest/1.2.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webpack-cli/configtest",
+      "registry_version": "1.2.0",
+      "sbom_version": "1.2.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "7a8b9e9d3ebcea966c2e1267d48232ede504efa97f7ef52baadf58acc2a7e813",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webpack-cli/info@1.5.0",
+    "source": "https://registry.npmjs.org/%40webpack-cli%2Finfo/1.5.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webpack-cli/info",
+      "registry_version": "1.5.0",
+      "sbom_version": "1.5.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "5272ada5135f15ab3f63b9686dd8ddaf5e48676014abc4dbbdc8bf54aacc4740",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@webpack-cli/serve@1.7.0",
+    "source": "https://registry.npmjs.org/%40webpack-cli%2Fserve/1.7.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@webpack-cli/serve",
+      "registry_version": "1.7.0",
+      "sbom_version": "1.7.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "dba0f123e728122854005cfda4dd72c3fd831715cb178dc3888185bb19a6114f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@xtuc/ieee754@1.2.0",
+    "source": "https://registry.npmjs.org/%40xtuc%2Fieee754/1.2.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "BSD-3-Clause"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@xtuc/ieee754",
+      "registry_version": "1.2.0",
+      "sbom_version": "1.2.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "fff9c6024a57f4c60af7fbe89bf223a248c751715ff25d7673247ed763278b16",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@xtuc/long@4.2.2",
+    "source": "https://registry.npmjs.org/%40xtuc%2Flong/4.2.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "Apache-2.0"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@xtuc/long",
+      "registry_version": "4.2.2",
+      "sbom_version": "4.2.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "31d031e769f5eb2e010e5c80006cba90947b6e1c3976071edf51ce2b7ab8083b",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/acorn-import-assertions@1.8.0",
+    "source": "https://registry.npmjs.org/acorn-import-assertions/1.8.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "acorn-import-assertions",
+      "registry_version": "1.8.0",
+      "sbom_version": "1.8.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "cfed91d313eef2f5b035d750db68691ce338296657f5ad64552046a6d23434c5",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/chrome-trace-event@1.0.3",
+    "source": "https://registry.npmjs.org/chrome-trace-event/1.0.3",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "chrome-trace-event",
+      "registry_version": "1.0.3",
+      "sbom_version": "1.0.3",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "135abfe612d7db39f395b180e3930e9158de3e30b9e3729e70b4c9ca42d815f7",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/clone-deep@4.0.1",
+    "source": "https://registry.npmjs.org/clone-deep/4.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "clone-deep",
+      "registry_version": "4.0.1",
+      "sbom_version": "4.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "2a962b3ef0425f717900a62465f2e1b99bcaee38439571c8e049f42ec5c8d0d9",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/colorette@2.0.19",
+    "source": "https://registry.npmjs.org/colorette/2.0.19",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "colorette",
+      "registry_version": "2.0.19",
+      "sbom_version": "2.0.19",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "da9107e723d21185b238c7054b7398e1a23586f7b8c5fd230ce4cfe6747f96ca",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/cross-env@7.0.3",
+    "source": "https://registry.npmjs.org/cross-env/7.0.3",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "cross-env",
+      "registry_version": "7.0.3",
+      "sbom_version": "7.0.3",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "c474088819ecdff9b430ba1b96b8d710a71ef8699185e89f2bcfb17249b6e142",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/envinfo@7.8.1",
+    "source": "https://registry.npmjs.org/envinfo/7.8.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "envinfo",
+      "registry_version": "7.8.1",
+      "sbom_version": "7.8.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "f7c82970cb4a2da8f15c550b5e5d3694c40c1805e583192dc240717fc4bcfdd3",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/es6-object-assign@1.1.0",
+    "source": "https://registry.npmjs.org/es6-object-assign/1.1.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "es6-object-assign",
+      "registry_version": "1.1.0",
+      "sbom_version": "1.1.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "b0efa9cc47476b7b871b0da37befd6f37efae10907f58ba483b3274a1648d802",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/fastest-levenshtein@1.0.16",
+    "source": "https://registry.npmjs.org/fastest-levenshtein/1.0.16",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "fastest-levenshtein",
+      "registry_version": "1.0.16",
+      "sbom_version": "1.0.16",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "a47b7ade60a29e4d385dc2130e36201aa8a033128832b7bcd00e706be22361d0",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/growl@1.10.5",
+    "source": "https://registry.npmjs.org/growl/1.10.5",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "growl",
+      "registry_version": "1.10.5",
+      "sbom_version": "1.10.5",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "37816b5a6def053d5245db2e78a064542f7e02372c3558859dcbbb98147577a4",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/import-lazy@4.0.0",
+    "source": "https://registry.npmjs.org/import-lazy/4.0.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "import-lazy",
+      "registry_version": "4.0.0",
+      "sbom_version": "4.0.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "556141a45a7edbcab716b15c5748e84c82912ff11df653ff0bc9876ba6b1895a",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/is-nan@1.3.2",
+    "source": "https://registry.npmjs.org/is-nan/1.3.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "is-nan",
+      "registry_version": "1.3.2",
+      "sbom_version": "1.3.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "72dd102f9e352ee0b026386b6f063bb23e09123db38125dfaa2acff94b15fee8",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/jju@1.4.0",
+    "source": "https://registry.npmjs.org/jju/1.4.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "jju",
+      "registry_version": "1.4.0",
+      "sbom_version": "1.4.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "b358b8b239e8d52a83e62da19308182bcd6ffcedf95a7265de58f575fef532ce",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/json-parse-better-errors@1.0.2",
+    "source": "https://registry.npmjs.org/json-parse-better-errors/1.0.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "json-parse-better-errors",
+      "registry_version": "1.0.2",
+      "sbom_version": "1.0.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "e398a8e1a7bbe40b9a0519a5c926987668279f2c344b13a04990dd955b136c35",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/level-js@6.1.0",
+    "source": "https://registry.npmjs.org/level-js/6.1.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "level-js",
+      "registry_version": "6.1.0",
+      "sbom_version": "6.1.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "2db60bafe9c50ba79df4868df498d2c063b80b2f577970b76312866e58fd3061",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/ltgt@2.2.1",
+    "source": "https://registry.npmjs.org/ltgt/2.2.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "ltgt",
+      "registry_version": "2.2.1",
+      "sbom_version": "2.2.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "e3af3219962a651cd95d8f2f481795a2be421a376a5de39836abd01db3eed82b",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/mcl-wasm@0.9.0",
+    "source": "https://registry.npmjs.org/mcl-wasm/0.9.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "BSD-3-Clause"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "mcl-wasm",
+      "registry_version": "0.9.0",
+      "sbom_version": "0.9.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "219b024cd334dcfd99dac56ff780a95cce638b032dceab4276353d06442dff03",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/node-loader@1.0.2",
+    "source": "https://registry.npmjs.org/node-loader/1.0.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "node-loader",
+      "registry_version": "1.0.2",
+      "sbom_version": "1.0.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "9c1e89f916b7425d7d822c73679dc63d1251df9af492a085d94327da425a9afe",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/object-is@1.1.5",
+    "source": "https://registry.npmjs.org/object-is/1.1.5",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "object-is",
+      "registry_version": "1.1.5",
+      "sbom_version": "1.1.5",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "8672da4679f3ba82e5588c92dae58143aef1d0b3999199db5980c4cd8a5a0172",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/rechoir@0.7.1",
+    "source": "https://registry.npmjs.org/rechoir/0.7.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "rechoir",
+      "registry_version": "0.7.1",
+      "sbom_version": "0.7.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "3a1d5027e560ad8db6bec41e1c63af03249bad8311a723aba596a1a9589a87fe",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/run-parallel-limit@1.1.0",
+    "source": "https://registry.npmjs.org/run-parallel-limit/1.1.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "run-parallel-limit",
+      "registry_version": "1.1.0",
+      "sbom_version": "1.1.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "749c895488f175c5b6418925f36d84e48ecd199bd39dac3739b9af7134595cd4",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/schema-utils@3.1.1",
+    "source": "https://registry.npmjs.org/schema-utils/3.1.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "schema-utils",
+      "registry_version": "3.1.1",
+      "sbom_version": "3.1.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "9f1151a890cca71022e392c19a0abd0a52f5bffab91a2753dad9669ba8417296",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/scrypt-js@3.0.1",
+    "source": "https://registry.npmjs.org/scrypt-js/3.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "scrypt-js",
+      "registry_version": "3.0.1",
+      "sbom_version": "3.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "a98743dad969eba361144f12bbd76e3a6164bfdbf41bcc531f71739f8a92a2da",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/shallow-clone@3.0.1",
+    "source": "https://registry.npmjs.org/shallow-clone/3.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "shallow-clone",
+      "registry_version": "3.0.1",
+      "sbom_version": "3.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "4d9946e3ef9596b06b84df3c8029a730416d13aace0a5395006dab3658e9df07",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/shebang-loader@0.0.1",
+    "source": "https://registry.npmjs.org/shebang-loader/0.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "shebang-loader",
+      "registry_version": "0.0.1",
+      "sbom_version": "0.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "ec55eb36fe7c5764f40bfcb33c9d5c900a18a3f20165d881b2234faaaebfdf65",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/shelljs@0.8.5",
+    "source": "https://registry.npmjs.org/shelljs/0.8.5",
+    "licenses": [
+      {
+        "license": {
+          "id": "BSD-3-Clause"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "shelljs",
+      "registry_version": "0.8.5",
+      "sbom_version": "0.8.5",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "b23e525feefaf95fd76546536695ceab4ba8c91e7897d286aec97e84e4d39b01",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/shx@0.3.3",
+    "source": "https://registry.npmjs.org/shx/0.3.3",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "shx",
+      "registry_version": "0.3.3",
+      "sbom_version": "0.3.3",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "208ddccb4d4c562c4bd4ad73bb09ef32d874a6d61f3534183324efe464547470",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/terser-webpack-plugin@5.2.5",
+    "source": "https://registry.npmjs.org/terser-webpack-plugin/5.2.5",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "terser-webpack-plugin",
+      "registry_version": "5.2.5",
+      "sbom_version": "5.2.5",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "e0627e238f8bcc50a59c1463c68b5004ac61abec54e2c1397290ff7d03ded179",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/timsort@0.3.0",
+    "source": "https://registry.npmjs.org/timsort/0.3.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "timsort",
+      "registry_version": "0.3.0",
+      "sbom_version": "0.3.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "ac534109674ade5111d24992a6bbe353e6f1df5025f228c0c2d4ac26c7ce91df",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/ts-loader@9.3.1",
+    "source": "https://registry.npmjs.org/ts-loader/9.3.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "ts-loader",
+      "registry_version": "9.3.1",
+      "sbom_version": "9.3.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "ffbeabf542a8f2fc73188d756b4183769756eb156ecb0ce9453daa3c14266ddf",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/validator@13.7.0",
+    "source": "https://registry.npmjs.org/validator/13.7.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "validator",
+      "registry_version": "13.7.0",
+      "sbom_version": "13.7.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "18d88e7af2b59b2d2a46e3fd1db3e8fdc75d3c3fb44b61b010865bef65de145e",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/webpack-cli@4.9.1",
+    "source": "https://registry.npmjs.org/webpack-cli/4.9.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "webpack-cli",
+      "registry_version": "4.9.1",
+      "sbom_version": "4.9.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "9c333e9f5e120d0befb32b65f71ee4e0730b22599da2d230aef3ebd6889913e2",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/webpack-merge@5.8.0",
+    "source": "https://registry.npmjs.org/webpack-merge/5.8.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "webpack-merge",
+      "registry_version": "5.8.0",
+      "sbom_version": "5.8.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "32a5f7ab8f2d9eeb29f5c1161b6e639e38e0b27a9a047e37d4f84944ebce1a10",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/wildcard@2.0.0",
+    "source": "https://registry.npmjs.org/wildcard/2.0.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "wildcard",
+      "registry_version": "2.0.0",
+      "sbom_version": "2.0.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "2276af2b58dd6773f075c8b80b65a418939bc1a6a50f29c72eaa4771bd07d24f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/z-schema@5.0.4",
+    "source": "https://registry.npmjs.org/z-schema/5.0.4",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "z-schema",
+      "registry_version": "5.0.4",
+      "sbom_version": "5.0.4",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "109a6ee0509feedbc56f8c31c7271d0903f269ff609d5a0aa093709696b216ca",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@trufflesuite/uws-js-unofficial@20.30.0",
+    "source": "https://registry.npmjs.org/%40trufflesuite%2Fuws-js-unofficial/20.30.0-unofficial.0",
+    "licenses": [
+      {
+        "license": {
+          "id": "Apache-2.0"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@trufflesuite/uws-js-unofficial",
+      "registry_version": "20.30.0-unofficial.0",
+      "sbom_version": "20.30.0",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "a5f4966557fc065cf0d22cd901610a5c3d2a7ff46ff692753966b893a6aab4cd",
+      "basis": "Exact resolved artifact and SHA-512 match package-lock and installed manifest; original SBOM display version is shortened. No version or CVE result changed.",
+      "artifact": {
+        "resolved_url": "https://registry.npmjs.org/@trufflesuite/uws-js-unofficial/-/uws-js-unofficial-20.30.0-unofficial.0.tgz",
+        "sha512": "af95f468e41cb93ea92f04d12c3fa63e700cfe794ab6f20ae19f8ccbef80f2d4ce474a938cd471f1407c8f3463dc3fa9f4f300a792e7a425141a6cfbfd3a69c0",
+        "installed_manifest_sha256": "48f0f874eeee0571e0d5795914b9153390af2e3066e38f3e03fa2ca5c7c84274"
+      }
+    }
+  },
+  {
+    "component_ref": "pkg:npm/bufferutil@4.0.7",
+    "source": "https://registry.npmjs.org/bufferutil/4.0.7",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "bufferutil",
+      "registry_version": "4.0.7",
+      "sbom_version": "4.0.7",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "c52fd9555895db6d9aa9244b0ca1e3b10e0a9e2c32f43cceee5d29fc5953279f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/utf-8-validate@6.0.3",
+    "source": "https://registry.npmjs.org/utf-8-validate/6.0.3",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "utf-8-validate",
+      "registry_version": "6.0.3",
+      "sbom_version": "6.0.3",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "4bc00c7d0ee891e0b157e610ca0541e74b4a3ed8535dc2277873e7350d731308",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/@types/seedrandom@3.0.1",
+    "source": "https://registry.npmjs.org/%40types%2Fseedrandom/3.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "@types/seedrandom",
+      "registry_version": "3.0.1",
+      "sbom_version": "3.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "5deca953a08d35212f4d10ed269adfda7216e32bd6e46a38150b79bb96f1d8f4",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/abstract-level@1.0.3",
+    "source": "https://registry.npmjs.org/abstract-level/1.0.3",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "abstract-level",
+      "registry_version": "1.0.3",
+      "sbom_version": "1.0.3",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "02273588ef8d3f52194441721a6f5ee3c5b13e7ce0c638a246fed737f758dc49",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/level-supports@4.0.1",
+    "source": "https://registry.npmjs.org/level-supports/4.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "level-supports",
+      "registry_version": "4.0.1",
+      "sbom_version": "4.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "1862d0014523611035cab5496af8982a776c4ad128ae35474582641710b39a9f",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/level-transcoder@1.0.1",
+    "source": "https://registry.npmjs.org/level-transcoder/1.0.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "level-transcoder",
+      "registry_version": "1.0.1",
+      "sbom_version": "1.0.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "cdfe9e3e888a3b2e8b74fcf9d7caafd2a7823cc9552cec4d93969dde771b41ec",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/module-error@1.0.2",
+    "source": "https://registry.npmjs.org/module-error/1.0.2",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "module-error",
+      "registry_version": "1.0.2",
+      "sbom_version": "1.0.2",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "df7975d8f0915544e22917ca04c19de3963c280ffe8bb6f61311a17e92e08f45",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/async-eventemitter@0.2.4",
+    "source": "https://registry.npmjs.org/async-eventemitter/0.2.4",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "async-eventemitter",
+      "registry_version": "0.2.4",
+      "sbom_version": "0.2.4",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "a52eecb033642c9787dabc665463cb91cc4043b59fa34cd2fb7d1d7494374930",
+      "basis": "Exact npm release declaration"
+    }
+  },
+  {
+    "component_ref": "pkg:npm/memorystream@0.3.1",
+    "source": "https://registry.npmjs.org/memorystream/0.3.1",
+    "licenses": [
+      {
+        "license": {
+          "id": "MIT"
+        }
+      }
+    ],
+    "evidence": {
+      "name": "memorystream",
+      "registry_version": "0.3.1",
+      "sbom_version": "0.3.1",
+      "retrieved_at": "2026-09-20T15:33:15.740383+00:00",
+      "response_sha256": "3669c63cad613924acc6dc40b70ddf590011b6f089da9b94da65bfc05689114d",
+      "basis": "Exact npm release declaration"
+    }
+  }
+]
