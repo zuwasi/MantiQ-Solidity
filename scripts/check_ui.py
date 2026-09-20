@@ -31,22 +31,70 @@ def main():
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(args.url + "/")
-        expect(page.locator(".count")).to_have_text("1 / 12")
+        expect(page.locator(".slide")).to_have_count(15)
+        expect(page.locator(".count")).to_have_text("1 / 15")
         expect(page.locator(".prev")).to_be_hidden()
+        page.evaluate("document.fonts.ready")
         page.screenshot(path=str(assets / "presentation.png"))
         page.keyboard.press("ArrowRight")
-        expect(page.locator(".count")).to_have_text("2 / 12")
+        expect(page.locator(".count")).to_have_text("2 / 15")
         page.keyboard.press("Space")
-        expect(page.locator(".count")).to_have_text("3 / 12")
+        expect(page.locator(".count")).to_have_text("3 / 15")
         page.keyboard.press("ArrowRight")
         page.wait_for_timeout(600)
         page.screenshot(path=str(assets / "defect-slide.png"))
-        for _ in range(8):
+        for _ in range(11):
             page.keyboard.press("ArrowRight")
-        expect(page.locator(".count")).to_have_text("12 / 12")
+        expect(page.locator(".count")).to_have_text("15 / 15")
         expect(page.locator(".next")).to_be_hidden()
         page.keyboard.press("ArrowRight")
-        expect(page.locator(".count")).to_have_text("12 / 12")
+        expect(page.locator(".count")).to_have_text("15 / 15")
+
+        # Hash navigation must not cause native scrolling in addition to translateX.
+        for n in range(1, 16):
+            page.goto(args.url + f"/#page-{n}")
+            expect(page.locator(".count")).to_have_text(f"{n} / 15")
+            page.wait_for_timeout(550)
+            active = page.locator(".slide").nth(n - 1)
+            assert abs(active.bounding_box()["x"]) < 1
+            expect(page.locator(".brandbar img")).to_be_visible()
+            expect(page.locator(".contactbar")).to_contain_text("Daniel Liezrowice")
+            expect(
+                page.locator('.contactbar a[href="mailto:daniel.l@eswlab.com"]')
+            ).to_be_visible()
+            expect(
+                page.locator('.contactbar a[href="tel:+97298855803"]')
+            ).to_be_visible()
+            assert active.evaluate("e => e.scrollWidth <= e.clientWidth")
+            assert page.locator("img").evaluate_all(
+                "es => es.every(e => e.complete && e.naturalWidth > 0)"
+            )
+            if n in (9, 10, 12, 15):
+                page.screenshot(path=str(ROOT / "runs" / f"branded-slide-{n}.png"))
+            if n == 10:
+                page.screenshot(path=str(assets / "sbomator-slide.png"))
+
+        page.goto(args.url + "/#page-10")
+        with page.expect_popup() as report_popup:
+            page.get_by_role("link", name="Explore the full HTML report").click()
+        report = report_popup.value
+        report.wait_for_load_state()
+        expect(report.get_by_role("heading", name="368", exact=True)).to_be_visible()
+        expect(report.locator("body")).to_contain_text(
+            "77 component(s) with missing licenses"
+        )
+        report.locator("#componentFilter").press_sequentially("serialize-javascript")
+        visible_rows = report.locator("#componentsTable tbody tr:visible")
+        expect(visible_rows).to_have_count(1)
+        expect(visible_rows).to_contain_text("6.0.0")
+        graph = report.locator("section.ig")
+        node = graph.locator('.ig-node[aria-label="@adraffy/ens-normalize"]')
+        # The unchanged report supports keyboard activation; mouse selection
+        # does not update its panel reliably in this browser.
+        node.press("Enter")
+        expect(graph.locator(".ig-panel")).to_contain_text("@adraffy/ens-normalize")
+        expect(graph.locator(".ig-panel")).to_contain_text("1.11.1")
+        report.close()
 
         page.goto(args.url + "/dashboard.html")
         expect(page.locator("#defective")).to_contain_text("Released")
@@ -87,6 +135,7 @@ def main():
         mobile = browser.new_page(
             viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
         )
+        mobile.on("pageerror", lambda error: errors.append(str(error)))
         mobile.goto(args.url + "/")
         mobile.screenshot(path=str(assets / "mobile-presentation.png"))
         # Dispatch touch events to exercise the actual swipe handler.
@@ -95,7 +144,25 @@ def main():
           el.dispatchEvent(new TouchEvent('touchstart', {bubbles:true, touches:[new Touch({identifier:1,target:el,clientX:300,clientY:200})]}));
           el.dispatchEvent(new TouchEvent('touchend', {bubbles:true, changedTouches:[new Touch({identifier:1,target:el,clientX:200,clientY:200})]}));
         }""")
-        expect(mobile.locator(".count")).to_have_text("2 / 12")
+        expect(mobile.locator(".count")).to_have_text("2 / 15")
+        for n in range(1, 16):
+            mobile.goto(args.url + f"/#page-{n}")
+            expect(mobile.locator(".count")).to_have_text(f"{n} / 15")
+            mobile.wait_for_timeout(550)
+            active = mobile.locator(".slide").nth(n - 1)
+            assert abs(active.bounding_box()["x"]) < 1
+            assert active.evaluate("e => e.scrollWidth <= e.clientWidth")
+            for contact in mobile.locator(".contactbar a").all():
+                box = contact.bounding_box()
+                assert box["x"] >= 0 and box["x"] + box["width"] <= 390
+                assert box["y"] >= 0 and box["y"] + box["height"] <= 844
+            active.evaluate("e => e.scrollTop = e.scrollHeight")
+            assert active.evaluate(
+                "e => e.lastElementChild.getBoundingClientRect().bottom <= "
+                "document.querySelector('.contactbar').getBoundingClientRect().top"
+            )
+            if n == 10:
+                mobile.screenshot(path=str(assets / "mobile-sbomator-slide.png"))
         mobile.goto(args.url + "/dashboard.html")
         expect(mobile.locator("#fixed")).to_contain_text("Funded")
         assert mobile.evaluate("document.documentElement.scrollWidth <= innerWidth")
@@ -139,7 +206,7 @@ def main():
         assert not errors, errors
         browser.close()
     print(
-        "PASS desktop/mobile slides, navigation, tour, download, missing evidence, overflow"
+        "PASS 15 desktop/mobile slides, branding, contacts, report filtering/graph, navigation, tour, download, missing evidence, overflow"
         + (", live execution" if args.live else "")
         + (", recording" if args.record else "")
     )

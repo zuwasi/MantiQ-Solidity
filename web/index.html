@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width,initial-scale=1,user-scalable=no"
     />
-    <title>MantiQ / Solidity</title>
+    <title>MantiQ / Solidity | Daniel Liezrowice | ESL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="stylesheet"
@@ -34,14 +34,13 @@
       }
       .deck {
         display: flex;
-        width: 1200vw;
         transition: transform 0.5s ease;
       }
       .slide {
         width: 100vw;
         height: 100vh;
         flex: none;
-        padding: clamp(3.5rem, 8vw, 8rem) clamp(1.5rem, 7vw, 7rem) 4.5rem;
+        padding: 108px clamp(4.5rem, 7vw, 7rem) 132px;
         overflow-y: auto;
         background: radial-gradient(
           circle at 90% 10%,
@@ -50,20 +49,21 @@
         );
       }
       h1 {
-        font-size: clamp(3rem, 8vw, 7rem);
-        line-height: 0.95;
+        font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+        line-height: 1.02;
         margin: 0.15em 0;
       }
       h2 {
-        font-size: clamp(2rem, 4.5vw, 4.5rem);
-        margin: 0.1em 0 0.6em;
+        font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+        line-height: 1.12;
+        margin: 0.2em 0 0.55em;
       }
       h3 {
         color: var(--mint);
       }
       p,
       li {
-        font-size: clamp(1rem, 1.55vw, 1.45rem);
+        font-size: clamp(1rem, 1.25vw, 1.2rem);
         line-height: 1.55;
         color: #dce3df;
       }
@@ -86,7 +86,16 @@
         background: #102b3ecc;
         border: 1px solid #315166;
         border-radius: 18px;
-        padding: clamp(1rem, 2vw, 2rem);
+        padding: clamp(1rem, 1.6vw, 1.6rem);
+      }
+      .card h3 {
+        margin: 0 0 12px;
+      }
+      .card p {
+        margin: 8px 0 0;
+      }
+      .split > div > .card + .card {
+        margin-top: 12px;
       }
       .bad {
         border-color: #a76d55;
@@ -144,6 +153,7 @@
       }
       .progress {
         position: fixed;
+        z-index: 5;
         bottom: 0;
         left: 0;
         height: 5px;
@@ -152,13 +162,15 @@
       }
       .count {
         position: fixed;
+        z-index: 5;
         right: 1.2rem;
-        bottom: 1rem;
+        bottom: 0.55rem;
         color: var(--muted);
       }
       .hint {
         position: fixed;
-        bottom: 1.2rem;
+        z-index: 5;
+        bottom: 0.55rem;
         left: 50%;
         transform: translateX(-50%);
         animation: pulse 1.5s infinite;
@@ -168,8 +180,221 @@
         color: var(--mint);
       }
       .big {
-        font-size: clamp(1.4rem, 2.6vw, 2.5rem);
+        font-size: clamp(1.15rem, 1.7vw, 1.7rem);
         max-width: 28em;
+      }
+      .brandbar,
+      .contactbar {
+        position: fixed;
+        z-index: 4;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        background: var(--navy);
+        padding: 12px clamp(1.2rem, 4vw, 4rem);
+      }
+      .brandbar {
+        top: 0;
+        border-bottom: 1px solid #315166;
+        height: 82px;
+      }
+      .brandbar .esl {
+        background: #fff;
+        border-radius: 6px;
+        padding: 5px 10px;
+        display: flex;
+      }
+      .brandbar img {
+        width: 176px;
+        height: 55px;
+        object-fit: contain;
+      }
+      .brand-title {
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .brand-title small {
+        display: block;
+        font-weight: 400;
+        color: var(--muted);
+        font-size: 0.75rem;
+        margin-top: 3px;
+      }
+      .contactbar {
+        bottom: 0;
+        padding-bottom: 40px;
+        min-height: 67px;
+        border-top: 1px solid #315166;
+        font-size: 0.82rem;
+      }
+      .contactbar .product-mark {
+        width: 108px;
+        height: 52px;
+        object-fit: contain;
+      }
+      .contactbar .person {
+        line-height: 1.5;
+      }
+      .contactbar .person span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.73rem;
+      }
+      .contact-links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .contact-links a {
+        white-space: nowrap;
+        text-decoration: none;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 0.85fr 1.35fr;
+        gap: 30px;
+        align-items: center;
+      }
+      .split.equal {
+        grid-template-columns: 1fr 1fr;
+      }
+      .split > *,
+      .grid > * {
+        min-width: 0;
+      }
+      figure {
+        margin: 0;
+      }
+      .capture {
+        padding: 8px;
+        background: #153246;
+        border: 1px solid #416075;
+        border-radius: 12px;
+        box-shadow: 0 18px 60px #0003;
+      }
+      .capture img {
+        display: block;
+        width: 100%;
+        max-height: 430px;
+        object-fit: contain;
+        border-radius: 6px;
+        background: #081b2b;
+      }
+      .capture figcaption {
+        padding: 9px 6px 3px;
+        color: #b4c9d3;
+        font-size: 0.76rem;
+        line-height: 1.4;
+      }
+      .capture a {
+        display: block;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+      }
+      .stat {
+        border-left: 3px solid var(--mint);
+        background: #102b3e;
+        padding: 12px 16px;
+      }
+      .stat strong {
+        display: block;
+        font-size: clamp(1.8rem, 3vw, 3rem);
+        color: var(--mint);
+      }
+      .stat span {
+        font-size: 0.83rem;
+        color: #dce3df;
+      }
+      .warning {
+        border-left: 3px solid var(--amber);
+        padding: 12px 18px;
+        background: #372e20;
+        color: #f5d79f;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+      .source {
+        color: var(--muted);
+        font-size: 0.75rem;
+        line-height: 1.45;
+        margin-top: 18px;
+      }
+      .cta {
+        display: inline-block;
+        padding: 11px 18px;
+        background: var(--mint);
+        color: #081b2b;
+        border-radius: 7px;
+        font-weight: 700;
+        text-decoration: none;
+        margin: 6px 6px 6px 0;
+        font-size: 0.95rem;
+      }
+      .cta.secondary {
+        background: transparent;
+        color: var(--mint);
+        border: 1px solid #527080;
+      }
+      .product-logo {
+        display: block;
+        width: min(100%, 380px);
+        margin: 0 auto 18px;
+        border-radius: 12px;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .step-number {
+        color: var(--amber);
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      .table th,
+      .table td {
+        border-bottom: 1px solid #315166;
+        padding: 12px;
+        text-align: left;
+      }
+      .table th {
+        color: var(--mint);
+      }
+      .table td code {
+        white-space: nowrap;
+      }
+      .signature {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      .signature strong {
+        display: block;
+      }
+      .signature span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--amber);
+        outline-offset: 4px;
       }
       .boundary {
         display: grid;
@@ -188,15 +413,77 @@
         }
       }
       @media (max-width: 700px) {
-        .grid {
+        .grid,
+        .split,
+        .split.equal,
+        .steps {
           grid-template-columns: 1fr;
         }
         .slide {
-          padding-top: 4rem;
+          padding: 100px 24px 190px;
         }
         .nav {
           top: auto;
-          bottom: 2.5rem;
+          bottom: 135px;
+          width: 38px;
+          height: 38px;
+        }
+        .brandbar img {
+          width: 126px;
+          height: 44px;
+        }
+        .brand-title {
+          font-size: 0.95rem;
+        }
+        .brand-title small {
+          font-size: 0.6rem;
+        }
+        .contactbar {
+          min-height: 94px;
+          gap: 8px;
+          padding: 8px 15px 36px;
+          flex-wrap: wrap;
+        }
+        .contactbar .product-mark {
+          width: 74px;
+          height: 37px;
+        }
+        .contactbar .person {
+          flex: 1;
+          font-size: 0.76rem;
+        }
+        .contactbar .person span {
+          font-size: 0.65rem;
+        }
+        .contact-links {
+          width: 100%;
+          justify-content: space-between;
+          gap: 6px;
+          font-size: 0.64rem;
+        }
+        .stats {
+          gap: 6px;
+        }
+        .stat {
+          padding: 8px;
+        }
+        .stat span {
+          font-size: 0.68rem;
+        }
+        .hint {
+          font-size: 0.73rem;
+          left: 24px;
+          transform: none;
+        }
+        .capture img {
+          max-height: 310px;
+        }
+        .table {
+          font-size: 0.75rem;
+        }
+        .table th,
+        .table td {
+          padding: 8px 4px;
         }
         .flow {
           gap: 0.35rem;
@@ -219,39 +506,106 @@
     </style>
   </head>
   <body>
+    <header class="brandbar">
+      <a
+        class="esl"
+        href="https://eswlab.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="ESL Engineering Software Lab website"
+        ><img src="assets/esl-logo.png" alt="ESL Engineering Software Lab"
+      /></a>
+      <div class="brand-title">
+        MantiQ <span style="color: var(--mint)">/ Solidity</span
+        ><small>ENGINEERING EVIDENCE BY ESL · 20 SEPTEMBER 2026</small>
+      </div>
+    </header>
     <main class="deck" id="deck">
-      <section class="slide">
-        <div class="eyebrow">ESL Engineering Software Lab</div>
-        <h1>MantiQ /<br />Solidity</h1>
-        <p class="big">
-          One escrow defect, examined across execution, models, proofs, static
-          analysis, and provenance.
+      <section class="slide" id="slide-1">
+        <div class="eyebrow">An ESL engineering demonstration</div>
+        <div class="split equal">
+          <div>
+            <h1>
+              One escrow.<br />Two outcomes.<br /><span
+                style="color: var(--mint)"
+                >Show the evidence.</span
+              >
+            </h1>
+            <p class="big">
+              Amp-assisted Solidity development, Wolfram checks, Lean 4 model
+              proofs, and ESL SBOMator supply-chain evidence.
+            </p>
+            <div class="signature">
+              <strong>Daniel Liezrowice</strong
+              ><span>Engineering Software Lab · MantiQ / Solidity</span>
+            </div>
+          </div>
+          <figure class="capture">
+            <a href="dashboard.html?autoplay=1"
+              ><img
+                src="assets/live-dashboard.png"
+                alt="Actual local dashboard: defective escrow Released, fixed escrow Funded; Olympix blocked and SBOMator findings visible"
+            /></a>
+            <figcaption>
+              Actual demo run, 20 September 2026. No wallet, public RPC, or real
+              funds. Select the screenshot to open the evidence tour.
+            </figcaption>
+          </figure>
+        </div>
+        <p class="note">
+          Prepared teaching fixture, not a production escrow or a security
+          guarantee.
         </p>
-        <span class="tag">Educational evidence, not a security guarantee</span>
       </section>
-      <section class="slide">
-        <div class="eyebrow">Purpose</div>
-        <h2>Make claims traceable</h2>
-        <div class="grid">
+      <section class="slide" id="slide-2">
+        <div class="eyebrow">Engineering Software Lab · Israel</div>
+        <h2>ESL connects the tools to the engineering question.</h2>
+        <p class="big">
+          This demo combines executable behavior, independent models, and
+          dependency evidence in one reproducible workflow.
+        </p>
+        <div class="steps">
           <div class="card">
-            <h3>The question</h3>
+            <span class="step-number">01</span>
+            <h3>Build &amp; exercise</h3>
             <p>
-              Does the implementation enforce the intended caller and settlement
-              rules?
+              Amp prepares the defective and corrected fixtures. Local EVM tests
+              show exactly how they behave.
             </p>
           </div>
           <div class="card">
-            <h3>The method</h3>
+            <span class="step-number">02</span>
+            <h3>Challenge assumptions</h3>
             <p>
-              Use independent tools for different claims, then preserve results
-              and source hashes in one evidence record.
+              Wolfram explores the model; Lean checks six model theorems. The
+              implementation-to-model gap stays explicit.
+            </p>
+          </div>
+          <div class="card">
+            <span class="step-number">03</span>
+            <h3>Expose the toolchain</h3>
+            <p>
+              ESL SBOMator identifies packages, advisories, and missing license
+              evidence behind the build and tests.
             </p>
           </div>
         </div>
+        <p>
+          <strong>Your contact: Daniel Liezrowice.</strong> Bring a repository,
+          intended behavior, and existing test evidence to scope a repeatable
+          demonstration.
+        </p>
+        <p class="source">
+          ESL service context: software verification and evidence preparation.
+          Brochure: <cite>ESL FDA Software Evidence Services</cite>, p. 9. This
+          Solidity demo makes no medical-device or regulatory approval claim.
+        </p>
       </section>
-      <section class="slide">
-        <div class="eyebrow">Escrow rules</div>
-        <h2>A small, explicit state machine</h2>
+      <section class="slide" id="slide-3">
+        <div class="eyebrow">
+          The business scenario · one funded supplier milestone
+        </div>
+        <h2>The buyer controls settlement, not the intermediary.</h2>
         <div class="boundary">
           <div class="card">
             <h3>Before deadline</h3>
@@ -268,7 +622,7 @@
           failure must revert settlement.
         </p>
       </section>
-      <section class="slide">
+      <section class="slide" id="slide-4">
         <div class="eyebrow">Intentionally seeded fixture</div>
         <h2>The authentication defect</h2>
         <div class="grid">
@@ -299,90 +653,396 @@
           arbitrary thief.
         </p>
       </section>
-      <section class="slide">
+      <section class="slide" id="slide-5">
         <div class="eyebrow">Local EVM</div>
-        <h2>Same path, different result</h2>
-        <div class="grid">
-          <div class="card bad">
-            <h3>Defective escrow</h3>
+        <h2>Same signed interaction. Ten test ETH stay or leave.</h2>
+        <div class="split">
+          <div>
             <p>
-              Intermediary release succeeds because
-              <code>tx.origin</code> remains the buyer.
+              <strong>Defective:</strong> releases 10 test ETH to the configured
+              supplier.
+            </p>
+            <p>
+              <strong>Corrected:</strong> rejects the intermediary; all 10 test
+              ETH remain in escrow.
+            </p>
+            <div class="stats">
+              <div class="stat"><strong>12</strong><span>EVM checks</span></div>
+              <div class="stat">
+                <strong>20</strong><span>generated sequences</span>
+              </div>
+              <div class="stat">
+                <strong>108</strong><span>generated actions</span>
+              </div>
+            </div>
+            <p class="note">
+              solc 0.8.37 · optimized Shanghai bytecode · Ganache in-process
+              EVM. Deadline boundaries, exact balances, repeated settlement, and
+              failed-transfer rollback are checked.
             </p>
           </div>
-          <div class="card good">
-            <h3>Fixed escrow</h3>
-            <p>
-              The same intermediary release reverts because
-              <code>msg.sender</code> is the intermediary.
-            </p>
-          </div>
+          <figure class="capture">
+            <a href="dashboard.html"
+              ><img
+                src="assets/live-dashboard.png"
+                alt="Measured defective and fixed escrow outcomes from the local EVM"
+            /></a>
+            <figcaption>
+              Real transactions and measured balances, not a simulated success
+              animation.
+            </figcaption>
+          </figure>
         </div>
-        <p>
-          Additional regressions cover unauthorized direct calls, deadline − 1
-          versus deadline, second settlement, rollback, and generated action
-          sequences.
-        </p>
       </section>
-      <section class="slide">
+      <section class="slide" id="slide-6">
         <div class="eyebrow">Wolfram</div>
-        <h2>Finite transition checks</h2>
-        <p class="big">
-          An independent state-machine implementation enumerates small caller,
-          origin, state, ledger, and boundary-time spaces.
-        </p>
-        <div class="card">
-          <p>
-            It checks guard behavior, terminal absorption, conservation in the
-            abstract ledger, and the concrete intermediary witness.
-          </p>
+        <h2>7,776 model cases. Test the exact deadline.</h2>
+        <div class="split equal">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Buyer call at</th>
+                  <th>Release</th>
+                  <th>Refund</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>deadline − 1</td>
+                  <td>Released</td>
+                  <td>Funded</td>
+                </tr>
+                <tr>
+                  <td>deadline</td>
+                  <td>Funded</td>
+                  <td>Refunded</td>
+                </tr>
+                <tr>
+                  <td>deadline + 1</td>
+                  <td>Funded</td>
+                  <td>Refunded</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              Independent enumeration checks guard behavior, terminal states,
+              and abstract conservation. Counterexample search finds the
+              caller/origin mismatch.
+            </p>
+            <p class="warning">
+              Finite model exploration is not exhaustive EVM verification.
+            </p>
+          </div>
+          <figure class="capture">
+            <img
+              src="assets/wolfram-evidence.png"
+              alt="Wolfram evidence panel from the actual completed demo run"
+            />
+            <figcaption>
+              Actual exported Wolfram results, displayed by the evidence
+              dashboard.
+            </figcaption>
+          </figure>
         </div>
       </section>
-      <section class="slide">
+      <section class="slide" id="slide-7">
         <div class="eyebrow">Lean</div>
-        <h2>Proofs, with a hard boundary</h2>
-        <p>
-          Lean proves properties of the normalized transition system: rejected
-          unauthorized release, unchanged failed calls, terminal absorption,
-          exclusive time windows, abstract conservation, and the
-          <code>tx.origin</code> counterexample.
-        </p>
-        <div class="card bad">
-          <h3>Not proved</h3>
-          <p>
-            No correspondence theorem connects the model to Solidity source or
-            bytecode. Gas, external calls, reentrancy, timestamps, ordering, and
-            EVM details remain outside the model.
-          </p>
+        <h2>Six kernel-checked theorems. A clearly bounded claim.</h2>
+        <div class="split equal">
+          <div>
+            <p>
+              Unauthorized release rejection, unchanged rejected calls, terminal
+              absorption, exclusive time windows, abstract conservation, and a
+              concrete <code>tx.origin</code> counterexample.
+            </p>
+            <p class="warning">
+              <strong>Not proved:</strong> correspondence between the model and
+              Solidity source or bytecode. Gas, external calls, reentrancy, and
+              transaction ordering remain outside this model.
+            </p>
+            <p class="note">
+              Lean 4.33.1 · no proof placeholders · model and assumptions
+              included in the MIT repository.
+            </p>
+          </div>
+          <figure class="capture">
+            <img
+              src="assets/lean-evidence.png"
+              alt="Actual Lean build evidence listing six model theorem names and their scope"
+            />
+            <figcaption>
+              Actual theorem inventory from the completed Lean build.
+            </figcaption>
+          </figure>
         </div>
       </section>
-      <section class="slide">
+      <section class="slide" id="slide-8">
         <div class="eyebrow">Olympix</div>
-        <h2>Static analysis integration</h2>
-        <p class="big">
-          The installed VS Code extension is version 2.0.2. CLI authentication
-          is separate and remains pending.
+        <h2>Installed, but not yet authenticated.</h2>
+        <div class="steps">
+          <div class="card">
+            <h3>Installed</h3>
+            <p>
+              VS Code extension 2.0.2 and Windows CLI 0.11.119. The CLI download
+              checksum was verified.
+            </p>
+          </div>
+          <div class="card bad">
+            <h3>BLOCKED</h3>
+            <p>
+              Account access was rejected. Daniel contacted Olympix support; no
+              authenticated scan has completed.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Next measurement</h3>
+            <p>
+              Run the real scan, capture JSON, and check whether it identifies
+              the seeded authorization defect.
+            </p>
+          </div>
+        </div>
+        <p class="warning">
+          No finding screenshot is shown because there is no completed Olympix
+          scan. Blocked never means passed.
         </p>
-        <p>
-          Unavailable access is reported as <strong>BLOCKED</strong>, not
-          converted into a pass. Credentials are never extracted from VS Code.
+        <p class="source">
+          Official CLI documentation:
+          <a
+            href="https://olympix.github.io/cli/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://olympix.github.io/cli/</a
+          >. Static analysis is documented as free; premium test generation is
+          outside v1.
         </p>
       </section>
-      <section class="slide">
-        <div class="eyebrow">SBOMator</div>
-        <h2>Dependency inventory, different claim</h2>
-        <p class="big">
-          SBOMator inventories dependencies and known CVEs. It does not
-          establish Solidity correctness.
-        </p>
-        <p>
-          Its current result and tool status are linked dynamically in the
-          dashboard evidence rather than frozen into this deck.
+      <section class="slide" id="slide-9">
+        <div class="eyebrow">ESL's software supply-chain evidence platform</div>
+        <h2>What is ESL SBOMator?</h2>
+        <div class="split">
+          <div>
+            <img
+              class="product-logo"
+              src="assets/sbomator-logo.png"
+              alt="ESL SBOMator product logo"
+            />
+            <p>
+              A software bill of materials answers
+              <strong>what is inside the software</strong>. SBOMator connects
+              that inventory to known vulnerabilities, license evidence, and
+              engineering review.
+            </p>
+            <a
+              class="cta"
+              href="reports/sbomator-report.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open this demo's actual report ↗</a
+            >
+          </div>
+          <div>
+            <div class="card">
+              <h3>Inventory</h3>
+              <p>
+                Generate CycloneDX component and dependency evidence, including
+                versions, suppliers, and licenses.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Assess &amp; explain</h3>
+              <p>
+                Correlate advisory sources; inspect dependency graphs; document
+                vulnerability status and justifications with VEX.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Retain &amp; monitor</h3>
+              <p>
+                Produce SBOMs, reports, and review records. Broader product
+                workflows support rescanning, change tracking, and lifecycle
+                evidence.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="source">
+          Based on ESL brochures: <cite>SBOMator CRA Compliance, Part 1</cite>,
+          pp. 2–5; <cite>Technical Differentiators, Part 2</cite>, pp. 10–14.
+          Product capabilities are not a claim that every feature ran in this
+          demo. SBOMator supports evidence preparation, not certification.
         </p>
       </section>
-      <section class="slide">
-        <div class="eyebrow">Evidence</div>
-        <h2>Reproducibility over screenshots</h2>
+      <section class="slide" id="slide-10">
+        <div class="eyebrow">
+          The actual MantiQ-Solidity report · 20 September 2026
+        </div>
+        <h2>Show the report, including its warnings.</h2>
+        <div class="split">
+          <div>
+            <div class="stats">
+              <div class="stat">
+                <strong>368</strong><span>components</span>
+              </div>
+              <div class="stat">
+                <strong>7</strong><span>unique advisories</span>
+              </div>
+              <div class="stat">
+                <strong>77</strong><span>missing licenses</span>
+              </div>
+            </div>
+            <p>
+              <strong>All four direct dependencies found:</strong> solc, ethers,
+              Ganache, and fast-check. Transitive development packages are
+              included.
+            </p>
+            <p class="warning">
+              <strong>Quality gate: BLOCKED.</strong> Missing license evidence
+              is not a license violation finding. It is missing evidence
+              requiring review.
+            </p>
+            <a
+              class="cta"
+              href="reports/sbomator-report.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Explore the full HTML report ↗</a
+            >
+            <p class="note">
+              Original report, unchanged. Local OSV snapshot; Grype disabled. No
+              fresh online advisory or Solidity-semantic coverage is claimed.
+            </p>
+          </div>
+          <figure class="capture">
+            <a
+              href="reports/sbomator-report.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="assets/sbomator-report-overview.png"
+                alt="Actual SBOMator report overview showing 368 components, four vulnerable components, seven advisory IDs and a missing-license warning"
+            /></a>
+            <figcaption>
+              Real SBOMator 1.4.8 output for MantiQ-Solidity, not a product
+              mockup. Report labels advisory IDs as “App CVEs”; these seven IDs
+              are GHSAs.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="slide" id="slide-11">
+        <div class="eyebrow">Read the findings precisely</div>
+        <h2>Seven advisories, eight component-level records.</h2>
+        <div class="split">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Package</th>
+                  <th>Version</th>
+                  <th>Records</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>sha.js</td>
+                  <td>2.4.11</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>serialize-javascript</td>
+                  <td>6.0.0</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>bn.js</td>
+                  <td>4.12.0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>bn.js</td>
+                  <td>5.2.1</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              The same advisory appears on two <code>bn.js</code> versions. That
+              explains <strong>8 records in the dashboard</strong> versus
+              <strong>7 unique IDs in the report</strong>.
+            </p>
+            <p class="warning">
+              Package matches are not proof of exploitability in this demo.
+              Triage reachability and update options; do not suppress a finding
+              to make the screen green.
+            </p>
+          </div>
+          <figure class="capture">
+            <a
+              href="reports/sbomator-report.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="assets/sbomator-report-findings.png"
+                alt="Real SBOMator component vulnerability table with sha.js, serialize-javascript and two bn.js versions"
+            /></a>
+            <figcaption>
+              Four affected component/version entries. These are
+              development-toolchain dependencies, not code deployed with the
+              Solidity contract.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="slide" id="slide-12">
+        <div class="eyebrow">From a package list to dependency context</div>
+        <h2>Explore the actual software dependency graph.</h2>
+        <div class="split">
+          <div>
+            <p>
+              Tab to a visible package node and press Enter to inspect its
+              evidence and relationships. Use the component-table filter for
+              exact package lookups.
+            </p>
+            <p>
+              The graph makes the build and test toolchain visible alongside the
+              escrow code.
+            </p>
+            <a
+              class="cta"
+              href="reports/sbomator-report.html#ig-sbom-dependency-graph-dbd34290"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open the interactive graph ↗</a
+            >
+            <p class="note">
+              Dependency relationships do not establish function-level
+              reachability or on-chain exploitability. This recorded graph
+              limits its default view to 180 nodes; its search can select the
+              project root. Use keyboard selection if clicking does not update
+              the details panel.
+            </p>
+          </div>
+          <figure class="capture">
+            <a
+              href="reports/sbomator-report.html#ig-sbom-dependency-graph-dbd34290"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="assets/sbomator-dependency-graph.png"
+                alt="Interactive dependency graph from the real MantiQ-Solidity SBOMator report"
+            /></a>
+            <figcaption>
+              Actual graph embedded in this report. It is not an unrelated
+              customer example.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="slide" id="slide-13">
+        <div class="eyebrow">The ESL evidence handover</div>
+        <h2>Open artifacts, bounded claims, reproducible checks.</h2>
         <div class="grid">
           <div class="card">
             <h3>Provenance</h3>
@@ -403,32 +1063,135 @@
           Recorded replay is labelled as recorded. Local execution is labelled
           live. Missing evidence stays missing.
         </p>
+        <a
+          class="cta"
+          href="https://github.com/zuwasi/MantiQ-Solidity"
+          target="_blank"
+          rel="noopener noreferrer"
+          >MIT source repository ↗</a
+        >
+        <a class="cta secondary" href="evidence/replay.json" download
+          >Download evidence JSON</a
+        >
+        <p class="note">
+          The SBOMator report is preserved byte-for-byte from the recorded run.
+          Third-party products and brand marks retain their own rights;
+          inclusion does not imply endorsement.
+        </p>
       </section>
-      <section class="slide">
-        <div class="eyebrow">Explore</div>
-        <h2>Open the dashboard</h2>
-        <p class="big">
-          Follow the five-stage tour, compare defective and fixed outcomes,
-          inspect provenance, or run local checks when the Python API is
-          available.
-        </p>
-        <p><a href="dashboard.html?autoplay=1">Watch dashboard tour →</a></p>
+      <section class="slide" id="slide-14">
+        <div class="eyebrow">Presenter hand-off · run or replay</div>
+        <h2>Let the audience inspect the evidence.</h2>
+        <div class="split">
+          <div>
+            <p>
+              Play the five-stage evidence tour, pause on a finding, and open
+              the full SBOMator report.
+            </p>
+            <a class="cta" href="dashboard.html?autoplay=1"
+              >Launch automated demo →</a
+            ><a
+              class="cta secondary"
+              href="reports/sbomator-report.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open SBOMator report ↗</a
+            >
+            <p>For live local execution:</p>
+            <p><code>python demo.py serve</code></p>
+            <p class="note">
+              Public GitHub Pages hosts recorded replay only. The loopback
+              Python server enables real local checks.
+            </p>
+          </div>
+          <figure class="capture">
+            <a href="dashboard.html?autoplay=1"
+              ><img
+                src="assets/live-dashboard.png"
+                alt="Actual dashboard with passed EVM, Wolfram and Lean stages, blocked Olympix, and SBOMator findings"
+            /></a>
+            <figcaption>
+              Click to explore. Findings and unavailable access remain visible.
+            </figcaption>
+          </figure>
+        </div>
       </section>
-      <section class="slide">
-        <div class="eyebrow">Takeaway</div>
-        <h2>Evidence has scope</h2>
-        <p class="big">
-          The fixture shows why immediate-caller authorization matters. Multiple
-          tools strengthen specific claims, but none turns this educational
-          escrow into audited production software.
-        </p>
-        <p>
-          Prepared with Amp as an intentionally seeded teaching fixture and
-          correction, not an arbitrary AI-generated mistake.
-        </p>
-        <span class="tag">No wallet · No public RPC · No real funds</span>
+      <section class="slide" id="slide-15">
+        <div class="eyebrow">Continue with ESL</div>
+        <h2>
+          Bring the engineering question.<br />Build the evidence with us.
+        </h2>
+        <div class="split equal">
+          <div>
+            <p class="big">
+              Discuss a scoped pilot around your software, dependencies, test
+              suite, and verification goals.
+            </p>
+            <div class="signature">
+              <strong>Daniel Liezrowice</strong
+              ><span>Engineering Software Lab · Israel</span>
+            </div>
+            <p>
+              <a href="mailto:daniel.l@eswlab.com">daniel.l@eswlab.com</a
+              ><br /><a href="tel:+97298855803">+972 9 8855803</a><br />Ha-Nagar
+              24 A, Hod Hasharon, Israel
+            </p>
+            <a
+              class="cta"
+              href="https://eswlab.com/contact-us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Contact ESL ↗</a
+            >
+          </div>
+          <div class="card">
+            <img
+              class="product-logo"
+              src="assets/sbomator-logo.png"
+              alt="ESL SBOMator"
+            />
+            <h3>A practical first conversation</h3>
+            <p>
+              What must the software do? What evidence already exists? Which
+              unknowns matter most?
+            </p>
+            <p class="warning">
+              Educational demonstration, not an audit, certification, or
+              production-readiness verdict.
+            </p>
+            <p class="note">
+              Sales: <a href="mailto:sales@eswlab.com">sales@eswlab.com</a> ·
+              <a
+                href="https://eswlab.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >eswlab.com</a
+              >
+            </p>
+          </div>
+        </div>
       </section>
     </main>
+    <footer
+      class="contactbar"
+      aria-label="Presenter and ESL contact details on every slide"
+    >
+      <img
+        class="product-mark"
+        src="assets/sbomator-logo.png"
+        alt="ESL SBOMator"
+      />
+      <div class="person">
+        <strong>Daniel Liezrowice</strong
+        ><span>ESL · Engineering Software Lab</span>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:daniel.l@eswlab.com">daniel.l@eswlab.com</a
+        ><a href="https://eswlab.com/" target="_blank" rel="noopener noreferrer"
+          >eswlab.com</a
+        ><a href="tel:+97298855803">+972 9 8855803</a>
+      </div>
+    </footer>
     <button class="nav prev" aria-label="Previous slide">‹</button
     ><button class="nav next" aria-label="Next slide">›</button>
     <div class="hint">← Swipe to navigate →</div>
@@ -449,15 +1212,20 @@
         function go(n) {
           i = Math.max(0, Math.min(slides.length - 1, n));
           deck.style.transform = `translateX(-${i * 100}vw)`;
+          slides.forEach((slide, n) => {
+            slide.inert = n !== i;
+          });
           prev.hidden = i === 0;
           next.hidden = i === slides.length - 1;
           bar.style.width = `${((i + 1) / slides.length) * 100}%`;
           count.textContent = `${i + 1} / ${slides.length}`;
+          history.replaceState(null, "", `#page-${i + 1}`);
           if (i) hint.hidden = true;
         }
         prev.onclick = () => go(i - 1);
         next.onclick = () => go(i + 1);
         addEventListener("keydown", (e) => {
+          if (e.target.closest("a,button,input,select,textarea")) return;
           if (e.key === "ArrowRight" || e.key === " ") {
             e.preventDefault();
             go(i + 1);
@@ -483,7 +1251,11 @@
         addEventListener("mouseup", up);
         addEventListener("touchstart", down, { passive: true });
         addEventListener("touchend", up, { passive: true });
-        go(0);
+        function fromHash() {
+          go((Number(location.hash.match(/^#page-(\d+)$/)?.[1]) || 1) - 1);
+        }
+        addEventListener("hashchange", fromHash);
+        fromHash();
       })();
     </script>
   </body>

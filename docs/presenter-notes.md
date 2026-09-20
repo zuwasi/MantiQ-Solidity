@@ -2,18 +2,32 @@
 
 Target: 10-15 minutes. Keep the dashboard honest: recorded evidence is playback, while the local API is execution.
 
-1. **Title (0:30)** Introduce MantiQ and ESL Engineering Software Lab. This is an educational fixture, not an audit.
-2. **Purpose (0:45)** The goal is traceable claims, not one oversized “secure” verdict.
+1. **Title (0:30)** Introduce Daniel Liezrowice, MantiQ, and ESL Engineering Software Lab. Point to the actual dashboard capture. This is an educational fixture, not an audit.
+2. **ESL workflow (0:45)** Explain how ESL connects executable tests, independent models, and supply-chain evidence. Invite a scoped engineering discussion, not a blanket security verdict.
 3. **Rules and boundary (1:00)** Release is before the deadline; refund is at or after it. Both require the buyer and a funded state.
 4. **Defect and transaction path (1:30)** Amp was used to prepare an intentionally seeded fixture and correction. The buyer must sign the intermediary interaction. `tx.origin` preserves the buyer, while `msg.sender` identifies the untrusted intermediary. Funds still go to the fixed supplier.
 5. **Local EVM (1:15)** The same intermediary call releases the defective contract and reverts on the fixed contract. Mention deadline and rollback regressions.
 6. **Wolfram (0:50)** Explain finite enumeration as an independent model check, not exhaustive EVM verification.
 7. **Lean (1:15)** State what is proved, then emphasize that no source/bytecode correspondence theorem exists.
-8. **Olympix (0:40)** VS Code extension 2.0.2 is installed. CLI authentication is independent and currently blocked. Never imply blocked means passed.
-9. **SBOMator (0:40)** It inventories dependencies and known CVEs. It does not prove Solidity behavior.
-10. **Evidence (0:50)** Point out revision, dirty state, source SHA-256 hashes, timestamp, and explicit statuses.
-11. **Dashboard (2:30)** Open the tour, step through stages, compare defective/fixed panels, and download JSON. If local API is reachable, run checks and show the mode changing from recorded replay to live local result.
-12. **Takeaway (0:45)** Each tool supports a bounded claim. There is no production wallet, public RPC, real money, audit, or blanket security guarantee.
+8. **Olympix (0:30)** VS Code extension 2.0.2 and checksum-verified CLI 0.11.119 are installed. Account access is blocked and support has been contacted. No scan result is invented.
+9. **What SBOMator is (0:50)** Explain ESL's component inventory, advisory correlation, license evidence, VEX, reporting, and broader monitoring capabilities. Separate marketed capabilities from this offline run.
+10. **The real report (0:50)** Open the report, show the MantiQ-Solidity project name and missing-license warning. It has 368 components and includes all four direct npm development dependencies. The license quality gate is blocked, not regulator-ready.
+11. **Count interpretation (0:45)** Seven unique GHSA IDs produce eight component-level vulnerability records across four package/version entries: sha.js, serialize-javascript, and two bn.js versions. A match is not proof of exploitability.
+12. **Dependency graph (0:45)** Open the graph, Tab to the visible @adraffy/ens-normalize node, and press Enter (version 1.11.1). Keyboard selection works; mouse selection did not reliably update the panel in browser checks. Use the component-table filter to look up serialize-javascript 6.0.0. This original report's graph search can select the project root because its metadata contains dependency names, and the default view limits visible nodes to 180. Dependencies are not function-level reachability. The report remains unchanged.
+13. **Evidence handover (0:40)** Point out revision, dirty state, SHA-256 hashes, timestamp, source, and explicit statuses. The report is the original recorded artifact, not a new scan.
+14. **Dashboard (1:00)** Open the tour, compare defective/fixed panels, and show the dated report link. Public playback is recorded; the local API alone offers live checks.
+15. **Contact (0:30)** Invite a scoped pilot with Daniel and ESL. Email, office phone, and website remain on every slide. No production wallet, public RPC, real money, audit, or blanket security guarantee.
+
+## Sources and image provenance
+
+- SBOMator explanation: `C:\Sbomator_1.4.x\client_docs\marketing\brochures\SBOMator_CRA_Compliance_Brochure_Part_1.pdf`, pp. 2-5, and `C:\Sbomator_1.4.x\client_docs\marketing\brochures\SBOMator_Technical_Differentiator_List_Part_2.pdf`, pp. 10-14.
+- ESL service/contact context: `C:\Sbomator_1.4.x\client_docs\marketing\brochures\ESL_FDA_Software_Evidence_Services_Focused[1].pdf`, p. 9, and https://eswlab.com/contact-us/.
+- Daniel is identified by name and ESL affiliation, without an unverified job title. Direct contact: daniel.l@eswlab.com. Office: +972 9 8855803, Ha-Nagar 24 A, Hod Hasharon, Israel.
+- ESL logo: `C:\Users\danie\ESL_Logo.png`. SBOMator mark: `C:\Sbomator_1.4.x\resources\branding\esl_logo.png`. These are existing brand assets, not AI-generated logos.
+- Report: `runs/20260920T101800Z-2d168abc/sbom.cdx.html`, copied unchanged to `web/reports/sbomator-report.html`. SHA-256: `ec00b26d0aa0e8362905cb97a451a8fc85c44e714e9c459823083f36b346ffc9`.
+- Report overview, findings, and graph images are browser screenshots of that exact report. Wolfram/Lean images are captures of the actual dashboard evidence panels. No stock report, customer screenshot, or generated scan image is used.
+- Report inspection found no local user paths or credentials; its npm maintainer metadata and software notices are retained. It uses embedded resources. No SBOMator application source, binaries, or license keys are distributed.
+- Product capability claims do not imply every feature was exercised: this run used local OSV data and disabled Grype. The original report and its warning language are preserved, including historical product-version metadata.
 
 ## Demo commands
 
@@ -29,7 +43,7 @@ Open the URL printed by the server, then choose **Run local checks**. For a chec
 python demo.py run
 ```
 
-If the command names differ in the final `demo.py`, use `python demo.py --help` and update these two commands before presenting. Do not open the HTML via `file://`, because browsers may block the evidence fetch.
+Do not open the dashboard via `file://`, because browsers may block the evidence fetch.
 
 ## Recovery
 

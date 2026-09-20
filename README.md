@@ -9,6 +9,7 @@ This is not an audit, production escrow, or a claim that AI happened to produce 
 - Presentation: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/
 - Automated evidence tour: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/dashboard.html?autoplay=1
 - Silent 32-second tour recording: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/assets/demo-tour.webm
+- Actual SBOMator report: https://zuwasi.github.io/Public-html-pages/mantiq-solidity/reports/sbomator-report.html
 - Source: https://github.com/zuwasi/MantiQ-Solidity
 
 ## Start locally
@@ -122,9 +123,19 @@ the pure-JavaScript fallback is used and executable checks still run.
 
 ## Presentation and replay
 
-`web/index.html` is a self-contained horizontal slide deck. Arrow keys, Space,
-touch swipes and mouse drags navigate; typography falls back to system sans-serif
-if Google Fonts is unavailable. `docs/presenter-notes.md` gives the 10-15 minute script.
+`web/index.html` is a 15-slide horizontal presentation with inline CSS/JavaScript
+and local logo/screenshot assets. ESL branding and Daniel Liezrowice's contact details
+remain visible throughout. Arrow keys, Space, touch swipes and mouse drags navigate;
+typography falls back to system sans-serif if Google Fonts is unavailable.
+`docs/presenter-notes.md` gives the 10-15 minute script and brochure/image sources.
+
+Slides 9-12 explain SBOMator and show the actual report, findings, and dependency
+graph. `web/reports/sbomator-report.html` is the unchanged HTML report from the
+20 September 2026 recorded run, reviewed for publication. It is a fixed historical
+artifact, not automatically replaced by later local scans. It reports seven unique
+GHSA IDs across eight component-level vulnerability records and four affected
+package/version entries; 77 missing-license fields block its quality gate.
+The offline database, disabled Grype scan, and development-toolchain scope remain explicit.
 
 `web/dashboard.html` can run on GitHub Pages without Python. That is **recorded
 evidence replay**, not a live scan or EVM. Play/pause/step/reset animate the evidence
@@ -150,4 +161,5 @@ These tools are not needed to view or run the dashboard itself.
 Original demo source and presentation: MIT, see [LICENSE](LICENSE).
 Olympix, Wolfram, SBOMator and other third-party tools retain their own licenses
 and are **not redistributed or relicensed** by this repository. Node dependencies
-retain their package licenses. No endorsement by those vendors is implied.
+retain their package licenses. Brand marks and notices in the generated report
+retain their respective rights. No endorsement by those vendors is implied.
