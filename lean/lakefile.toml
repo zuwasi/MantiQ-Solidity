@@ -1,0 +1,6 @@
+name = "MantiQEscrowModel"
+version = "0.1.0"
+defaultTargets = ["MantiQEscrowModel"]
+
+[[lean_lib]]
+name = "MantiQEscrowModel"

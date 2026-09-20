@@ -1,0 +1,17 @@
+{
+  "name": "mantiq-solidity",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ESL milestone escrow: executable checks, model proofs and supply-chain evidence",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/evm.mjs"
+  },
+  "devDependencies": {
+    "ethers": "6.17.0",
+    "fast-check": "4.10.2",
+    "ganache": "7.9.2",
+    "solc": "0.8.37"
+  }
+}

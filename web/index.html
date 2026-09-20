@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <title>MantiQ / Solidity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --navy: #081b2b;
+        --navy2: #102b3e;
+        --cream: #f6f0df;
+        --mint: #7de2bd;
+        --amber: #d8a95c;
+        --muted: #9eb1ba;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--navy);
+        color: var(--cream);
+        font-family: Inter, system-ui, sans-serif;
+        overflow: hidden;
+      }
+      .deck {
+        display: flex;
+        width: 1200vw;
+        transition: transform 0.5s ease;
+      }
+      .slide {
+        width: 100vw;
+        height: 100vh;
+        flex: none;
+        padding: clamp(3.5rem, 8vw, 8rem) clamp(1.5rem, 7vw, 7rem) 4.5rem;
+        overflow-y: auto;
+        background: radial-gradient(
+          circle at 90% 10%,
+          #153d4c 0,
+          transparent 35%
+        );
+      }
+      h1 {
+        font-size: clamp(3rem, 8vw, 7rem);
+        line-height: 0.95;
+        margin: 0.15em 0;
+      }
+      h2 {
+        font-size: clamp(2rem, 4.5vw, 4.5rem);
+        margin: 0.1em 0 0.6em;
+      }
+      h3 {
+        color: var(--mint);
+      }
+      p,
+      li {
+        font-size: clamp(1rem, 1.55vw, 1.45rem);
+        line-height: 1.55;
+        color: #dce3df;
+      }
+      .eyebrow {
+        color: var(--mint);
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .sub {
+        font-size: clamp(1.1rem, 2vw, 1.8rem);
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+      }
+      .card {
+        background: #102b3ecc;
+        border: 1px solid #315166;
+        border-radius: 18px;
+        padding: clamp(1rem, 2vw, 2rem);
+      }
+      .bad {
+        border-color: #a76d55;
+      }
+      .good {
+        border-color: var(--mint);
+      }
+      code {
+        color: var(--mint);
+        background: #061522;
+        padding: 0.15em 0.35em;
+        border-radius: 5px;
+      }
+      .flow {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+      .node {
+        padding: 1rem 1.2rem;
+        border: 1px solid #527080;
+        border-radius: 999px;
+      }
+      .arrow {
+        color: var(--amber);
+        font-size: 1.5rem;
+      }
+      .tag {
+        display: inline-block;
+        color: var(--amber);
+        border: 1px solid var(--amber);
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+      }
+      .nav {
+        position: fixed;
+        top: 50%;
+        z-index: 3;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid #66808d;
+        background: #102b3e;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+      .prev {
+        left: 1rem;
+      }
+      .next {
+        right: 1rem;
+      }
+      .progress {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--mint), var(--amber));
+        transition: width 0.4s;
+      }
+      .count {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1rem;
+        color: var(--muted);
+      }
+      .hint {
+        position: fixed;
+        bottom: 1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: pulse 1.5s infinite;
+        color: var(--mint);
+      }
+      a {
+        color: var(--mint);
+      }
+      .big {
+        font-size: clamp(1.4rem, 2.6vw, 2.5rem);
+        max-width: 28em;
+      }
+      .boundary {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+      }
+      .time {
+        font-size: clamp(2rem, 5vw, 5rem);
+        color: var(--amber);
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.35;
+        }
+      }
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .slide {
+          padding-top: 4rem;
+        }
+        .nav {
+          top: auto;
+          bottom: 2.5rem;
+        }
+        .flow {
+          gap: 0.35rem;
+        }
+        .node {
+          padding: 0.6rem;
+        }
+        .boundary {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .deck {
+          transition: none;
+        }
+        .hint {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck" id="deck">
+      <section class="slide">
+        <div class="eyebrow">ESL Engineering Software Lab</div>
+        <h1>MantiQ /<br />Solidity</h1>
+        <p class="big">
+          One escrow defect, examined across execution, models, proofs, static
+          analysis, and provenance.
+        </p>
+        <span class="tag">Educational evidence, not a security guarantee</span>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Purpose</div>
+        <h2>Make claims traceable</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>The question</h3>
+            <p>
+              Does the implementation enforce the intended caller and settlement
+              rules?
+            </p>
+          </div>
+          <div class="card">
+            <h3>The method</h3>
+            <p>
+              Use independent tools for different claims, then preserve results
+              and source hashes in one evidence record.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Escrow rules</div>
+        <h2>A small, explicit state machine</h2>
+        <div class="boundary">
+          <div class="card">
+            <h3>Before deadline</h3>
+            <p>Buyer may release to the configured supplier.</p>
+          </div>
+          <div class="time">deadline</div>
+          <div class="card">
+            <h3>At / after deadline</h3>
+            <p>Buyer may refund. Terminal states cannot settle again.</p>
+          </div>
+        </div>
+        <p>
+          Failed calls leave state and ledger unchanged. Recipient transfer
+          failure must revert settlement.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Intentionally seeded fixture</div>
+        <h2>The authentication defect</h2>
+        <div class="grid">
+          <div class="card bad">
+            <h3>Defective</h3>
+            <p><code>tx.origin == buyer</code></p>
+            <p>
+              An intermediary call still carries the buyer as transaction
+              origin.
+            </p>
+          </div>
+          <div class="card good">
+            <h3>Corrected</h3>
+            <p><code>msg.sender == buyer</code></p>
+            <p>The immediate caller must be the buyer.</p>
+          </div>
+        </div>
+        <div class="flow">
+          <span class="node">Buyer signs</span><span class="arrow">→</span
+          ><span class="node">Untrusted intermediary</span
+          ><span class="arrow">→</span><span class="node">Escrow</span
+          ><span class="arrow">→</span
+          ><span class="node">Configured supplier</span>
+        </div>
+        <p>
+          Precondition: the buyer signs the intermediary transaction. This is
+          not a remote unauthenticated drain, and funds do not go to an
+          arbitrary thief.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Local EVM</div>
+        <h2>Same path, different result</h2>
+        <div class="grid">
+          <div class="card bad">
+            <h3>Defective escrow</h3>
+            <p>
+              Intermediary release succeeds because
+              <code>tx.origin</code> remains the buyer.
+            </p>
+          </div>
+          <div class="card good">
+            <h3>Fixed escrow</h3>
+            <p>
+              The same intermediary release reverts because
+              <code>msg.sender</code> is the intermediary.
+            </p>
+          </div>
+        </div>
+        <p>
+          Additional regressions cover unauthorized direct calls, deadline − 1
+          versus deadline, second settlement, rollback, and generated action
+          sequences.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Wolfram</div>
+        <h2>Finite transition checks</h2>
+        <p class="big">
+          An independent state-machine implementation enumerates small caller,
+          origin, state, ledger, and boundary-time spaces.
+        </p>
+        <div class="card">
+          <p>
+            It checks guard behavior, terminal absorption, conservation in the
+            abstract ledger, and the concrete intermediary witness.
+          </p>
+        </div>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Lean</div>
+        <h2>Proofs, with a hard boundary</h2>
+        <p>
+          Lean proves properties of the normalized transition system: rejected
+          unauthorized release, unchanged failed calls, terminal absorption,
+          exclusive time windows, abstract conservation, and the
+          <code>tx.origin</code> counterexample.
+        </p>
+        <div class="card bad">
+          <h3>Not proved</h3>
+          <p>
+            No correspondence theorem connects the model to Solidity source or
+            bytecode. Gas, external calls, reentrancy, timestamps, ordering, and
+            EVM details remain outside the model.
+          </p>
+        </div>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Olympix</div>
+        <h2>Static analysis integration</h2>
+        <p class="big">
+          The installed VS Code extension is version 2.0.2. CLI authentication
+          is separate and remains pending.
+        </p>
+        <p>
+          Unavailable access is reported as <strong>BLOCKED</strong>, not
+          converted into a pass. Credentials are never extracted from VS Code.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">SBOMator</div>
+        <h2>Dependency inventory, different claim</h2>
+        <p class="big">
+          SBOMator inventories dependencies and known CVEs. It does not
+          establish Solidity correctness.
+        </p>
+        <p>
+          Its current result and tool status are linked dynamically in the
+          dashboard evidence rather than frozen into this deck.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Evidence</div>
+        <h2>Reproducibility over screenshots</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Provenance</h3>
+            <p>
+              Revision, dirty state, creation time, and genuine SHA-256 hashes
+              for source files.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Honest states</h3>
+            <p>
+              Pending, running, passed, failed, blocked, and findings remain
+              distinct.
+            </p>
+          </div>
+        </div>
+        <p>
+          Recorded replay is labelled as recorded. Local execution is labelled
+          live. Missing evidence stays missing.
+        </p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Explore</div>
+        <h2>Open the dashboard</h2>
+        <p class="big">
+          Follow the five-stage tour, compare defective and fixed outcomes,
+          inspect provenance, or run local checks when the Python API is
+          available.
+        </p>
+        <p><a href="dashboard.html?autoplay=1">Watch dashboard tour →</a></p>
+      </section>
+      <section class="slide">
+        <div class="eyebrow">Takeaway</div>
+        <h2>Evidence has scope</h2>
+        <p class="big">
+          The fixture shows why immediate-caller authorization matters. Multiple
+          tools strengthen specific claims, but none turns this educational
+          escrow into audited production software.
+        </p>
+        <p>
+          Prepared with Amp as an intentionally seeded teaching fixture and
+          correction, not an arbitrary AI-generated mistake.
+        </p>
+        <span class="tag">No wallet · No public RPC · No real funds</span>
+      </section>
+    </main>
+    <button class="nav prev" aria-label="Previous slide">‹</button
+    ><button class="nav next" aria-label="Next slide">›</button>
+    <div class="hint">← Swipe to navigate →</div>
+    <div class="progress"></div>
+    <div class="count" aria-live="polite"></div>
+    <script>
+      (() => {
+        "use strict";
+        const deck = document.querySelector("#deck"),
+          slides = [...document.querySelectorAll(".slide")],
+          prev = document.querySelector(".prev"),
+          next = document.querySelector(".next"),
+          bar = document.querySelector(".progress"),
+          count = document.querySelector(".count"),
+          hint = document.querySelector(".hint");
+        let i = 0,
+          startX = null;
+        function go(n) {
+          i = Math.max(0, Math.min(slides.length - 1, n));
+          deck.style.transform = `translateX(-${i * 100}vw)`;
+          prev.hidden = i === 0;
+          next.hidden = i === slides.length - 1;
+          bar.style.width = `${((i + 1) / slides.length) * 100}%`;
+          count.textContent = `${i + 1} / ${slides.length}`;
+          if (i) hint.hidden = true;
+        }
+        prev.onclick = () => go(i - 1);
+        next.onclick = () => go(i + 1);
+        addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === " ") {
+            e.preventDefault();
+            go(i + 1);
+          }
+          if (e.key === "ArrowLeft") go(i - 1);
+        });
+        function down(e) {
+          if (
+            e.target.closest("button,a,input,select,textarea") ||
+            getSelection().toString()
+          )
+            return;
+          startX = e.clientX ?? e.touches[0].clientX;
+        }
+        function up(e) {
+          if (startX === null) return;
+          const x = e.clientX ?? e.changedTouches[0].clientX,
+            d = x - startX;
+          startX = null;
+          if (Math.abs(d) >= 50) go(i + (d < 0 ? 1 : -1));
+        }
+        addEventListener("mousedown", down);
+        addEventListener("mouseup", up);
+        addEventListener("touchstart", down, { passive: true });
+        addEventListener("touchend", up, { passive: true });
+        go(0);
+      })();
+    </script>
+  </body>
+</html>

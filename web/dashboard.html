@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MantiQ Evidence Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --n: #081b2b;
+        --n2: #102b3e;
+        --c: #f6f0df;
+        --m: #7de2bd;
+        --a: #d8a95c;
+        --x: #d77b6a;
+        --u: #9eb1ba;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--n);
+        color: var(--c);
+        font-family: Inter, system-ui, sans-serif;
+      }
+      header,
+      main {
+        max-width: 1400px;
+        margin: auto;
+        padding: 1.5rem 2rem;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .brand b {
+        font-size: 1.6rem;
+      }
+      .brand small {
+        display: block;
+        color: var(--u);
+      }
+      .badge {
+        padding: 0.45rem 0.75rem;
+        border: 1px solid var(--a);
+        color: var(--a);
+        border-radius: 999px;
+      }
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.7rem;
+        margin: 1rem 0 1.5rem;
+      }
+      .stage,
+      .panel {
+        border: 1px solid #315166;
+        background: var(--n2);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+      .stage {
+        cursor: pointer;
+        text-align: left;
+        color: var(--c);
+        min-height: 100px;
+      }
+      .stage.focus {
+        outline: 3px solid var(--m);
+        transform: translateY(-3px);
+      }
+      .stage small {
+        display: block;
+        color: var(--u);
+        margin-top: 0.5rem;
+      }
+      .status {
+        display: block;
+        margin-top: 0.45rem;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--a);
+      }
+      .passed {
+        color: var(--m);
+      }
+      .failed {
+        color: var(--x);
+      }
+      .blocked,
+      .findings {
+        color: var(--a);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1rem;
+      }
+      .good {
+        border-color: var(--m);
+      }
+      .bad {
+        border-color: var(--x);
+      }
+      h2,
+      h3 {
+        margin-top: 0.2rem;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+      .metric {
+        background: #071722;
+        padding: 0.7rem;
+        border-radius: 8px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .metric:last-child {
+        grid-column: 1 / -1;
+        font-size: 0.75rem;
+      }
+      .panel {
+        min-width: 0;
+      }
+      #provenance {
+        overflow-wrap: anywhere;
+      }
+      #detail pre {
+        max-height: 340px;
+        overflow: auto;
+      }
+      .metric span {
+        display: block;
+        color: var(--u);
+        font-size: 0.78rem;
+      }
+      .flow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 1rem;
+      }
+      .node {
+        border: 1px solid #527080;
+        padding: 0.65rem;
+        border-radius: 999px;
+      }
+      .arrow {
+        color: var(--a);
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 1rem 0;
+      }
+      button,
+      a.button {
+        font: inherit;
+        border: 1px solid #527080;
+        background: var(--n2);
+        color: var(--c);
+        padding: 0.65rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .caption {
+        min-height: 3em;
+        color: var(--m);
+      }
+      details {
+        margin-top: 1rem;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-break: break-all;
+        color: #c6d3d3;
+      }
+      .error {
+        border-color: var(--x);
+        color: #f2b4a8;
+      }
+      .muted {
+        color: var(--u);
+      }
+      @media (max-width: 800px) {
+        header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .pipeline {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .stage {
+          min-height: auto;
+        }
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+        }
+        .stage {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <b>MantiQ / Solidity</b><small>ESL Engineering Software Lab</small>
+      </div>
+      <a class="button" href="index.html">Presentation</a>
+      <span class="badge" id="mode">Loading recorded evidence…</span>
+    </header>
+    <main>
+      <section aria-labelledby="pipeline-title">
+        <h1 id="pipeline-title">Evidence pipeline</h1>
+        <div class="pipeline" id="pipeline"></div>
+        <p class="caption" id="caption" aria-live="polite"></p>
+        <div class="controls">
+          <button id="play">Play tour</button><button id="pause">Pause</button
+          ><button id="step">Next stage</button><button id="reset">Reset</button
+          ><button id="run" disabled>Run local checks</button
+          ><button id="download" disabled>Download full evidence JSON</button>
+        </div>
+      </section>
+      <section class="grid">
+        <article class="panel bad">
+          <h2>Defective escrow</h2>
+          <p><code>tx.origin == buyer</code></p>
+          <p class="muted">Same intermediary call. Values in test ETH.</p>
+          <div class="metrics" id="defective"></div>
+        </article>
+        <article class="panel good">
+          <h2>Fixed escrow</h2>
+          <p><code>msg.sender == buyer</code></p>
+          <p class="muted">Immediate caller checked. Values in test ETH.</p>
+          <div class="metrics" id="fixed"></div>
+        </article>
+      </section>
+      <div class="flow" aria-label="Transaction path">
+        <span class="node">Buyer signs</span><span class="arrow">→</span
+        ><span class="node">Untrusted intermediary</span
+        ><span class="arrow">→</span><span class="node">Escrow</span
+        ><span class="arrow">→</span
+        ><span class="node">Configured supplier</span>
+      </div>
+      <section class="grid">
+        <article class="panel">
+          <h2>Selected stage</h2>
+          <div id="detail" class="muted">Select a stage.</div>
+        </article>
+        <article class="panel">
+          <h2>Source provenance</h2>
+          <div id="provenance" class="muted">Evidence has not loaded.</div>
+        </article>
+      </section>
+      <section class="panel" style="margin-top: 1rem">
+        <h2>Interpretation boundary</h2>
+        <p>
+          Recorded playback is not live execution. EVM checks concern the local
+          fixture; Wolfram and Lean concern an abstract model; Olympix may be
+          blocked; SBOMator inventories dependencies and known CVEs, not
+          Solidity correctness. No result here is a global “all secure” claim.
+        </p>
+        <p id="notice" class="muted">Fetching evidence/replay.json…</p>
+      </section>
+    </main>
+    <script>
+      (() => {
+        "use strict";
+        const $ = (s) => document.querySelector(s),
+          ids = ["evm", "wolfram", "lean", "olympix", "sbomator"],
+          names = {
+            evm: "Local EVM",
+            wolfram: "Wolfram",
+            lean: "Lean",
+            olympix: "Olympix",
+            sbomator: "SBOMator",
+          },
+          captions = {
+            evm: "Execute the same signed intermediary path against both contracts.",
+            wolfram:
+              "Enumerate finite states and deadline boundaries independently.",
+            lean: "Inspect proved transition-system properties and their explicit boundary.",
+            olympix:
+              "Static analysis access remains visible when authentication is unavailable.",
+            sbomator:
+              "Inventory dependencies and known CVEs without claiming Solidity correctness.",
+          };
+        let evidence = null,
+          index = 0,
+          timer = null,
+          generation = 0,
+          pollTimer = null,
+          live = false;
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function text(tag, value, cls) {
+          const e = document.createElement(tag);
+          if (cls) e.className = cls;
+          e.textContent = value ?? "Not reported";
+          return e;
+        }
+        function stop() {
+          clearInterval(timer);
+          timer = null;
+        }
+        function stopPoll() {
+          clearTimeout(pollTimer);
+          pollTimer = null;
+          generation++;
+        }
+        function stageById(id) {
+          return evidence?.stages?.find((s) => s.id === id);
+        }
+        function renderStages() {
+          const p = $("#pipeline");
+          p.replaceChildren();
+          ids.forEach((id, n) => {
+            const s = stageById(id),
+              b = text("button", "");
+            b.className = "stage" + (n === index ? " focus" : "");
+            b.type = "button";
+            b.setAttribute(
+              "aria-label",
+              `${names[id]}: ${s?.status || "missing"}`,
+            );
+            b.append(
+              text("strong", names[id]),
+              text("span", s?.status || "missing", `status ${s?.status || ""}`),
+              text("small", s?.summary || "No evidence supplied"),
+            );
+            b.onclick = () => focus(n);
+            p.append(b);
+          });
+        }
+        function focus(n) {
+          index = (n + ids.length) % ids.length;
+          renderStages();
+          const s = stageById(ids[index]);
+          $("#caption").textContent = captions[ids[index]];
+          const d = $("#detail");
+          d.replaceChildren(
+            text("h3", s?.name || names[ids[index]]),
+            text("p", s?.summary || "No evidence supplied."),
+          );
+          if (s?.details !== undefined) {
+            const pre = text(
+              "pre",
+              typeof s.details === "string"
+                ? s.details
+                : JSON.stringify(s.details, null, 2),
+            );
+            d.append(pre);
+          }
+        }
+        function metricPanel(id, obj) {
+          const root = $(id);
+          root.replaceChildren();
+          [
+            ["State", obj?.state],
+            ["Escrow", obj?.escrow],
+            ["Seller Δ", obj?.sellerDelta],
+            ["Transaction", obj?.txHash],
+          ].forEach(([k, v]) => {
+            const d = text("div", "", "metric");
+            d.append(text("span", k), text("strong", v ?? "Missing"));
+            root.append(d);
+          });
+        }
+        function render(data, kind) {
+          evidence = data;
+          live = kind === "live";
+          $("#mode").className = "badge";
+          $("#mode").textContent = live
+            ? "Live local result"
+            : "Recorded evidence replay";
+          $("#notice").textContent = live
+            ? "Result returned by the local Python API."
+            : "Loaded recorded evidence. Playback only, not live execution.";
+          metricPanel("#defective", data?.scenario?.defective);
+          metricPanel("#fixed", data?.scenario?.fixed);
+          const src = data?.source,
+            prov = $("#provenance");
+          prov.replaceChildren(
+            text("p", `Revision: ${src?.revision ?? "Missing"}`),
+            text(
+              "p",
+              `Working tree: ${src?.dirty === true ? "dirty" : src?.dirty === false ? "clean" : "Missing"}`,
+            ),
+            text("p", `Created: ${data?.created_at ?? "Missing"}`),
+          );
+          const files = src?.files;
+          if (files && typeof files === "object") {
+            const hashes = document.createElement("details");
+            hashes.append(
+              text("summary", `${Object.keys(files).length} source hashes`),
+            );
+            Object.entries(files).forEach(([path, hash]) =>
+              hashes.append(text("pre", `${path}\nSHA-256 ${hash}`)),
+            );
+            prov.append(hashes);
+          }
+          $("#download").disabled = false;
+          focus(index);
+        }
+        function missing(msg) {
+          evidence = null;
+          $("#mode").textContent = "Missing evidence";
+          $("#mode").className = "badge error";
+          $("#notice").textContent = msg;
+          renderStages();
+          metricPanel("#defective");
+          metricPanel("#fixed");
+          $("#download").disabled = true;
+          $("#detail").replaceChildren(text("p", "No evidence available."));
+          $("#provenance").replaceChildren(text("p", "No evidence available."));
+        }
+        function play() {
+          stop();
+          if (reduced) {
+            focus(index);
+            return;
+          }
+          timer = setInterval(() => focus(index + 1), 6000);
+        }
+        function download() {
+          if (!evidence) return;
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(
+            new Blob([JSON.stringify(evidence, null, 2)], {
+              type: "application/json",
+            }),
+          );
+          a.download = `mantiq-evidence-${evidence.run_id || "record"}.json`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(a.href), 0);
+        }
+        async function apiStatus() {
+          if (!["localhost", "127.0.0.1"].includes(location.hostname))
+            return false;
+          try {
+            const r = await fetch("/api/status", { cache: "no-store" });
+            if (!r.ok) return false;
+            const j = await r.json();
+            $("#run").disabled = !!j.running;
+            if (j.result) render(j.result, "live");
+            if (j.running) poll(generation);
+            return true;
+          } catch {
+            return false;
+          }
+        }
+        async function poll(token) {
+          if (token !== generation) return;
+          try {
+            const response = await fetch("/api/status", { cache: "no-store" });
+            if (!response.ok) throw new Error("API status failed");
+            const state = await response.json();
+            if (token !== generation) return;
+            if (state.result) render(state.result, "live");
+            if (state.running) {
+              $("#mode").textContent = "Live local run in progress";
+              pollTimer = setTimeout(() => poll(token), 1000);
+            } else {
+              stopPoll();
+              $("#run").disabled = false;
+              if (!state.result)
+                missing("Local run completed without evidence.");
+            }
+          } catch {
+            stopPoll();
+            $("#run").disabled = false;
+            missing(
+              "Lost connection to the local API. The server may still be running checks.",
+            );
+          }
+        }
+        async function run() {
+          if ($("#run").disabled) return;
+          stop();
+          stopPoll();
+          const token = generation;
+          $("#run").disabled = true;
+          try {
+            const r = await fetch("/api/run", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: "{}",
+            });
+            if (r.status !== 202) throw new Error(`Run rejected (${r.status})`);
+            missing("Waiting for the first result from this new local run.");
+            $("#mode").textContent = "Live local run in progress";
+            poll(token);
+          } catch (e) {
+            $("#run").disabled = false;
+            $("#notice").textContent = e.message;
+          }
+        }
+        $("#play").onclick = play;
+        $("#pause").onclick = stop;
+        $("#step").onclick = () => {
+          stop();
+          focus(index + 1);
+        };
+        $("#reset").onclick = () => {
+          stop();
+          focus(0);
+        };
+        $("#download").onclick = download;
+        $("#run").onclick = run;
+        renderStages();
+        fetch("evidence/replay.json", { cache: "no-store" })
+          .then((r) => {
+            if (!r.ok) throw Error(`HTTP ${r.status}`);
+            return r.json();
+          })
+          .then((d) => render(d, "replay"))
+          .catch((e) => missing(`Recorded evidence unavailable: ${e.message}`))
+          .finally(async () => {
+            const ok = await apiStatus();
+            if (!ok) $("#run").disabled = true;
+            if (new URLSearchParams(location.search).get("autoplay") === "1")
+              play();
+          });
+      })();
+    </script>
+  </body>
+</html>
