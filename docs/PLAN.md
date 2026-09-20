@@ -42,3 +42,33 @@ escrow. Unauthorized direct calls fail. Deadline-1 and deadline differ. A second
 settlement is rejected. Failed recipient transfers roll back state. Generated action
 sequences agree with an independent reference state machine. Real evidence backs
 every published green check; unavailable integrations remain visible.
+
+## Checkpoint: 2026-09-20
+
+The MIT repository, presentation, dashboard, and recorded evidence are published.
+Verification passed: 12 EVM checks, 20 generated transaction sequences (108 actions),
+7,776 Wolfram model cases, six Lean model theorems, five Python tests, and
+desktop/mobile browser checks including live local execution and public replay.
+SBOMator reported 368 components, eight vulnerability entries, and 77 unresolved
+inventory fields. These findings remain open, not a clean release verdict.
+
+Olympix CLI 0.11.119 is installed locally at
+`C:\Users\danie\bin\olympix.exe`; its SHA-256 matched the official Windows x64
+release checksum. The binary is not redistributed in this repository.
+Login was rejected with an account-access message indicating that the email had
+not requested access. The user contacted Olympix support; integration is paused
+pending their response. No authenticated Olympix scan has completed, and the
+published evidence correctly retains BLOCKED status.
+
+Resume after support confirms access:
+
+1. Run `olympix login -e YOUR_EMAIL` and enter the newest emailed code in the local
+   terminal. Do not publish codes, tokens, or credential files.
+2. Run `python demo.py run --olympix` to capture actual scan results.
+3. Review the findings, including whether the deliberately defective fixture is
+   detected; do not assume the scan will identify it.
+4. Export source-matched evidence, refresh the presentation and recording as needed,
+   verify the dashboard, and republish the reviewed artifacts.
+
+Official CLI documentation: https://olympix.github.io/cli/
+The documented static-analysis tier is free; premium test generation is outside v1.
