@@ -14,12 +14,13 @@
     />
     <style>
       :root {
-        --navy: #081b2b;
-        --navy2: #102b3e;
-        --cream: #f6f0df;
-        --mint: #7de2bd;
-        --amber: #d8a95c;
-        --muted: #9eb1ba;
+        --paper: #f3efe5;
+        --ink: #20231f;
+        --accent: #b63724;
+        --muted: #64675d;
+        --line: #bcbcaf;
+        --surface: #e9e5da;
+        --positive: #28624b;
       }
       * {
         box-sizing: border-box;
@@ -27,8 +28,8 @@
       html,
       body {
         margin: 0;
-        background: var(--navy);
-        color: var(--cream);
+        background: var(--paper);
+        color: var(--ink);
         font-family: Inter, system-ui, sans-serif;
         overflow: hidden;
       }
@@ -42,40 +43,59 @@
         flex: none;
         padding: 108px clamp(4.5rem, 7vw, 7rem) 132px;
         overflow-y: auto;
-        background: radial-gradient(
-          circle at 90% 10%,
-          #153d4c 0,
-          transparent 35%
-        );
+        background: var(--paper);
+        counter-increment: page;
+      }
+      .slide.dark {
+        --paper: #202723;
+        --ink: #f3efe5;
+        --muted: #bdc3b9;
+        --accent: #ff9a7e;
+        --line: #5e6b61;
+        --surface: #303a33;
+        --positive: #b1d6b7;
+        color: var(--ink);
       }
       h1 {
-        font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-        line-height: 1.02;
-        margin: 0.15em 0;
+        font-size: clamp(3rem, 5.1vw, 5.2rem);
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+        margin: 0.3em 0;
       }
       h2 {
-        font-size: clamp(1.8rem, 3.2vw, 3.2rem);
-        line-height: 1.12;
-        margin: 0.2em 0 0.55em;
+        font-size: clamp(2rem, 3.8vw, 3.8rem);
+        letter-spacing: -0.05em;
+        line-height: 1.05;
+        max-width: 23ch;
+        margin: 0.35em 0 0.55em;
       }
       h3 {
-        color: var(--mint);
+        color: var(--ink);
       }
       p,
       li {
         font-size: clamp(1rem, 1.25vw, 1.2rem);
         line-height: 1.55;
-        color: #dce3df;
+        color: var(--ink);
       }
       .eyebrow {
-        color: var(--mint);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        border-top: 2px solid var(--ink);
+        padding-top: 12px;
+        color: var(--accent);
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-      .sub {
-        font-size: clamp(1.1rem, 2vw, 1.8rem);
+      .eyebrow::after {
+        content: counter(page, decimal-leading-zero);
         color: var(--muted);
+        white-space: nowrap;
+        font-family: ui-monospace, monospace;
       }
       .grid {
         display: grid;
@@ -83,10 +103,8 @@
         gap: 1.4rem;
       }
       .card {
-        background: #102b3ecc;
-        border: 1px solid #315166;
-        border-radius: 18px;
-        padding: clamp(1rem, 1.6vw, 1.6rem);
+        border-top: 1px solid var(--line);
+        padding: clamp(1rem, 1.6vw, 1.6rem) 0;
       }
       .card h3 {
         margin: 0 0 12px;
@@ -98,16 +116,15 @@
         margin-top: 12px;
       }
       .bad {
-        border-color: #a76d55;
+        border-top: 4px solid var(--accent);
       }
       .good {
-        border-color: var(--mint);
+        border-top: 4px solid var(--positive);
       }
       code {
-        color: var(--mint);
-        background: #061522;
+        color: var(--accent);
+        background: var(--surface);
         padding: 0.15em 0.35em;
-        border-radius: 5px;
       }
       .flow {
         display: flex;
@@ -118,19 +135,12 @@
       }
       .node {
         padding: 1rem 1.2rem;
-        border: 1px solid #527080;
-        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-family: ui-monospace, monospace;
       }
       .arrow {
-        color: var(--amber);
+        color: var(--accent);
         font-size: 1.5rem;
-      }
-      .tag {
-        display: inline-block;
-        color: var(--amber);
-        border: 1px solid var(--amber);
-        border-radius: 999px;
-        padding: 0.3rem 0.7rem;
       }
       .nav {
         position: fixed;
@@ -139,9 +149,9 @@
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        border: 1px solid #66808d;
-        background: #102b3e;
-        color: white;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--ink);
         font-size: 2rem;
         cursor: pointer;
       }
@@ -157,7 +167,7 @@
         bottom: 0;
         left: 0;
         height: 5px;
-        background: linear-gradient(90deg, var(--mint), var(--amber));
+        background: linear-gradient(90deg, var(--accent), #e2a064);
         transition: width 0.4s;
       }
       .count {
@@ -174,10 +184,10 @@
         left: 50%;
         transform: translateX(-50%);
         animation: pulse 1.5s infinite;
-        color: var(--mint);
+        color: var(--accent);
       }
       a {
-        color: var(--mint);
+        color: var(--accent);
       }
       .big {
         font-size: clamp(1.15rem, 1.7vw, 1.7rem);
@@ -193,17 +203,16 @@
         align-items: center;
         justify-content: space-between;
         gap: 18px;
-        background: var(--navy);
+        background: var(--paper);
         padding: 12px clamp(1.2rem, 4vw, 4rem);
       }
       .brandbar {
         top: 0;
-        border-bottom: 1px solid #315166;
+        border-bottom: 1px solid var(--line);
         height: 82px;
       }
       .brandbar .esl {
         background: #fff;
-        border-radius: 6px;
         padding: 5px 10px;
         display: flex;
       }
@@ -228,7 +237,7 @@
         bottom: 0;
         padding-bottom: 40px;
         min-height: 67px;
-        border-top: 1px solid #315166;
+        border-top: 1px solid var(--line);
         font-size: 0.82rem;
       }
       .contactbar .product-mark {
@@ -272,22 +281,19 @@
       }
       .capture {
         padding: 8px;
-        background: #153246;
-        border: 1px solid #416075;
-        border-radius: 12px;
-        box-shadow: 0 18px 60px #0003;
+        background: var(--surface);
+        border: 1px solid var(--line);
       }
       .capture img {
         display: block;
         width: 100%;
         max-height: 430px;
         object-fit: contain;
-        border-radius: 6px;
-        background: #081b2b;
+        background: #202723;
       }
       .capture figcaption {
         padding: 9px 6px 3px;
-        color: #b4c9d3;
+        color: var(--muted);
         font-size: 0.76rem;
         line-height: 1.4;
       }
@@ -301,24 +307,23 @@
         margin: 20px 0;
       }
       .stat {
-        border-left: 3px solid var(--mint);
-        background: #102b3e;
-        padding: 12px 16px;
+        border-top: 1px solid var(--line);
+        padding: 12px 0;
       }
       .stat strong {
         display: block;
         font-size: clamp(1.8rem, 3vw, 3rem);
-        color: var(--mint);
+        color: var(--accent);
       }
       .stat span {
         font-size: 0.83rem;
-        color: #dce3df;
+        color: var(--muted);
       }
       .warning {
-        border-left: 3px solid var(--amber);
+        border-left: 3px solid var(--accent);
         padding: 12px 18px;
-        background: #372e20;
-        color: #f5d79f;
+        background: var(--surface);
+        color: var(--ink);
       }
       .note {
         color: var(--muted);
@@ -334,9 +339,8 @@
       .cta {
         display: inline-block;
         padding: 11px 18px;
-        background: var(--mint);
-        color: #081b2b;
-        border-radius: 7px;
+        background: var(--ink);
+        color: var(--paper);
         font-weight: 700;
         text-decoration: none;
         margin: 6px 6px 6px 0;
@@ -344,14 +348,13 @@
       }
       .cta.secondary {
         background: transparent;
-        color: var(--mint);
-        border: 1px solid #527080;
+        color: var(--ink);
+        border: 1px solid var(--line);
       }
       .product-logo {
         display: block;
         width: min(100%, 380px);
         margin: 0 auto 18px;
-        border-radius: 12px;
       }
       .steps {
         display: grid;
@@ -359,9 +362,12 @@
         gap: 16px;
       }
       .step-number {
-        color: var(--amber);
-        font-size: 2rem;
-        font-weight: 700;
+        display: block;
+        color: var(--accent);
+        font-size: clamp(3rem, 6vw, 6rem);
+        letter-spacing: -0.07em;
+        font-weight: 400;
+        margin-bottom: 16px;
       }
       .table {
         width: 100%;
@@ -370,12 +376,12 @@
       }
       .table th,
       .table td {
-        border-bottom: 1px solid #315166;
+        border-bottom: 1px solid var(--line);
         padding: 12px;
         text-align: left;
       }
       .table th {
-        color: var(--mint);
+        color: var(--accent);
       }
       .table td code {
         white-space: nowrap;
@@ -393,7 +399,7 @@
       }
       a:focus-visible,
       button:focus-visible {
-        outline: 3px solid var(--amber);
+        outline: 3px solid var(--accent);
         outline-offset: 4px;
       }
       .boundary {
@@ -405,28 +411,191 @@
       }
       .time {
         font-size: clamp(2rem, 5vw, 5rem);
-        color: var(--amber);
+        color: var(--accent);
+        letter-spacing: -0.06em;
+      }
+      .cover .split {
+        grid-template-columns: 1.25fr 0.85fr;
+        gap: clamp(24px, 5vw, 80px);
+      }
+      .cover h1 span {
+        color: var(--accent);
+      }
+      .cover .big {
+        font-size: clamp(1rem, 1.35vw, 1.3rem);
+        max-width: 38ch;
+      }
+      .receipt {
+        background: #fcfaf4;
+        border: 1px solid var(--line);
+        padding: clamp(20px, 2.5vw, 36px);
+        box-shadow: 12px 12px 0 #20231f12;
+        transform: rotate(2deg);
+      }
+      .receipt-label,
+      .receipt dt {
+        font-family: ui-monospace, monospace;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .receipt-amount {
+        margin: 26px 0;
+        font-size: clamp(3.5rem, 6vw, 6rem);
+        letter-spacing: -0.075em;
+        line-height: 1;
+      }
+      .receipt-amount small {
+        display: block;
+        font-size: 0.8rem;
+        letter-spacing: 0;
+        margin-top: 12px;
+      }
+      .receipt dl {
+        margin: 0;
+      }
+      .receipt dl > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-top: 1px dashed var(--line);
+        padding: 16px 0;
+      }
+      .receipt dd {
+        margin: 0;
+        text-align: right;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .receipt .verdict {
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        text-align: center;
+        padding: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .balance {
+        display: block;
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        letter-spacing: -0.06em;
+        line-height: 1.2;
+      }
+      .balance small {
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        font-weight: 400;
+      }
+      .outcomes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 18px;
+      }
+      .outcomes p {
+        margin: 0;
+        font-size: 0.88rem;
+      }
+      .outcomes p:first-child .balance {
+        color: var(--accent);
+      }
+      .outcomes p:last-child .balance {
+        color: var(--positive);
       }
       @keyframes pulse {
         50% {
           opacity: 0.35;
         }
       }
+      @media (min-width: 701px) and (max-height: 850px) {
+        .slide {
+          padding-top: 96px;
+          padding-bottom: 120px;
+        }
+        h1 {
+          font-size: clamp(2.8rem, 4.5vw, 4rem);
+        }
+        h2 {
+          font-size: clamp(2rem, 3.2vw, 3rem);
+          margin-bottom: 0.4em;
+        }
+        h3 {
+          font-size: 1rem;
+        }
+        p,
+        li,
+        .big,
+        .cover .big {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+        .note,
+        .source {
+          font-size: 0.72rem;
+        }
+        .card {
+          padding: 12px 0;
+        }
+        .step-number {
+          font-size: 3rem;
+          margin-bottom: 12px;
+        }
+        .capture img {
+          max-height: 300px;
+        }
+        .product-logo {
+          width: min(100%, 240px);
+        }
+        .receipt {
+          padding: 24px;
+        }
+        .receipt-amount {
+          font-size: 4rem;
+          margin: 16px 0;
+        }
+        .receipt dl > div {
+          padding: 12px 0;
+        }
+        .stats {
+          margin: 12px 0;
+        }
+        .stat {
+          padding: 8px 0;
+        }
+      }
       @media (max-width: 700px) {
         .grid,
         .split,
         .split.equal,
+        .cover .split,
         .steps {
           grid-template-columns: 1fr;
         }
         .slide {
           padding: 100px 24px 190px;
         }
+        .receipt {
+          transform: none;
+          margin: 8px 8px 16px 0;
+        }
+        .eyebrow {
+          font-size: 0.63rem;
+        }
         .nav {
           top: auto;
-          bottom: 135px;
-          width: 38px;
-          height: 38px;
+          bottom: 7px;
+          width: 30px;
+          height: 30px;
+          font-size: 1.5rem;
+          z-index: 6;
+        }
+        .count {
+          right: 60px;
+          bottom: 14px;
+          font-size: 0.75rem;
         }
         .brandbar img {
           width: 126px;
@@ -471,8 +640,9 @@
           font-size: 0.68rem;
         }
         .hint {
-          font-size: 0.73rem;
-          left: 24px;
+          font-size: 0.64rem;
+          left: 58px;
+          bottom: 14px;
           transform: none;
         }
         .capture img {
@@ -516,58 +686,74 @@
         ><img src="assets/esl-logo.png" alt="ESL Engineering Software Lab"
       /></a>
       <div class="brand-title">
-        MantiQ <span style="color: var(--mint)">/ Solidity</span
+        MantiQ <span style="color: var(--accent)">/ Solidity</span
         ><small>ENGINEERING EVIDENCE BY ESL · 20 SEPTEMBER 2026</small>
       </div>
     </header>
     <main class="deck" id="deck">
-      <section class="slide" id="slide-1">
-        <div class="eyebrow">An ESL engineering demonstration</div>
+      <section class="slide cover" id="slide-1">
+        <div class="eyebrow">Case file / The escrow authorization test</div>
         <div class="split equal">
           <div>
             <h1>
-              One escrow.<br />Two outcomes.<br /><span
-                style="color: var(--mint)"
-                >Show the evidence.</span
-              >
+              The buyer signed.<br /><span>Should the<br />contract pay?</span>
             </h1>
             <p class="big">
-              Amp-assisted Solidity development, Wolfram checks, Lean 4 model
-              proofs, and ESL SBOMator supply-chain evidence.
+              A 10 test ETH escrow. One wrong authorization check. Follow the
+              transaction, inspect the fix, then look inside the toolchain that
+              built it.
             </p>
+            <a class="cta" href="#page-4">Follow the defect →</a>
+            <a class="cta secondary" href="dashboard.html?autoplay=1"
+              >Play the demo ↗</a
+            >
             <div class="signature">
               <strong>Daniel Liezrowice</strong
               ><span>Engineering Software Lab · MantiQ / Solidity</span>
             </div>
           </div>
-          <figure class="capture">
-            <a href="dashboard.html?autoplay=1"
-              ><img
-                src="assets/live-dashboard.png"
-                alt="Actual local dashboard: defective escrow Released, fixed escrow Funded; Olympix blocked and SBOMator findings visible"
-            /></a>
-            <figcaption>
-              Actual demo run, 20 September 2026. No wallet, public RPC, or real
-              funds. Select the screenshot to open the evidence tour.
-            </figcaption>
-          </figure>
+          <aside class="receipt" aria-label="Illustrated escrow case summary">
+            <div class="receipt-label">ESL / Local EVM teaching fixture</div>
+            <div class="receipt-amount">
+              10.00<small>TEST ETH / INITIAL ESCROW BALANCE</small>
+            </div>
+            <dl>
+              <div>
+                <dt>Signed by</dt>
+                <dd>Buyer</dd>
+              </div>
+              <div>
+                <dt>Called by</dt>
+                <dd>Intermediary</dd>
+              </div>
+              <div>
+                <dt>Paid to</dt>
+                <dd>Configured supplier</dd>
+              </div>
+            </dl>
+            <p class="verdict">A signature ≠ permission</p>
+            <p class="note">
+              Scenario illustration, not a blockchain receipt.<br />No real
+              funds. No public network.
+            </p>
+          </aside>
         </div>
         <p class="note">
-          Prepared teaching fixture, not a production escrow or a security
-          guarantee.
+          Amp · Solidity · Wolfram · Lean 4 · ESL SBOMator. Prepared teaching
+          fixture, not a production escrow or a security guarantee.
         </p>
       </section>
       <section class="slide" id="slide-2">
-        <div class="eyebrow">Engineering Software Lab · Israel</div>
-        <h2>ESL connects the tools to the engineering question.</h2>
+        <div class="eyebrow">The investigation / Three questions</div>
+        <h2>Working code is only the first question.</h2>
         <p class="big">
-          This demo combines executable behavior, independent models, and
-          dependency evidence in one reproducible workflow.
+          ESL brings the implementation, the mathematical model, and the
+          software inventory to the same review.
         </p>
         <div class="steps">
           <div class="card">
             <span class="step-number">01</span>
-            <h3>Build &amp; exercise</h3>
+            <h3>What does the code do?</h3>
             <p>
               Amp prepares the defective and corrected fixtures. Local EVM tests
               show exactly how they behave.
@@ -575,7 +761,7 @@
           </div>
           <div class="card">
             <span class="step-number">02</span>
-            <h3>Challenge assumptions</h3>
+            <h3>Do the rules hold?</h3>
             <p>
               Wolfram explores the model; Lean checks six model theorems. The
               implementation-to-model gap stays explicit.
@@ -583,7 +769,7 @@
           </div>
           <div class="card">
             <span class="step-number">03</span>
-            <h3>Expose the toolchain</h3>
+            <h3>What did we build it with?</h3>
             <p>
               ESL SBOMator identifies packages, advisories, and missing license
               evidence behind the build and tests.
@@ -605,7 +791,7 @@
         <div class="eyebrow">
           The business scenario · one funded supplier milestone
         </div>
-        <h2>The buyer controls settlement, not the intermediary.</h2>
+        <h2>One deadline. Two allowed exits.</h2>
         <div class="boundary">
           <div class="card">
             <h3>Before deadline</h3>
@@ -622,9 +808,9 @@
           failure must revert settlement.
         </p>
       </section>
-      <section class="slide" id="slide-4">
+      <section class="slide dark" id="slide-4">
         <div class="eyebrow">Intentionally seeded fixture</div>
-        <h2>The authentication defect</h2>
+        <h2>Right signer.<br />Wrong caller.</h2>
         <div class="grid">
           <div class="card bad">
             <h3>Defective</h3>
@@ -653,18 +839,26 @@
           arbitrary thief.
         </p>
       </section>
-      <section class="slide" id="slide-5">
-        <div class="eyebrow">Local EVM</div>
-        <h2>Same signed interaction. Ten test ETH stay or leave.</h2>
+      <section class="slide dark" id="slide-5">
+        <div class="eyebrow">Exhibit A / Measured local EVM outcomes</div>
+        <h2>Same interaction.<br />Different balance.</h2>
         <div class="split">
           <div>
+            <div class="outcomes">
+              <p>
+                <strong>Defective escrow</strong
+                ><strong class="balance">0 <small>test ETH</small></strong
+                >remaining after release
+              </p>
+              <p>
+                <strong>Corrected escrow</strong
+                ><strong class="balance">10 <small>test ETH</small></strong
+                >retained; call rejected
+              </p>
+            </div>
             <p>
-              <strong>Defective:</strong> releases 10 test ETH to the configured
-              supplier.
-            </p>
-            <p>
-              <strong>Corrected:</strong> rejects the intermediary; all 10 test
-              ETH remain in escrow.
+              The defective escrow pays the configured supplier. The corrected
+              escrow rejects the intermediary.
             </p>
             <div class="stats">
               <div class="stat"><strong>12</strong><span>EVM checks</span></div>
@@ -695,10 +889,13 @@
         </div>
       </section>
       <section class="slide" id="slide-6">
-        <div class="eyebrow">Wolfram</div>
-        <h2>7,776 model cases. Test the exact deadline.</h2>
+        <div class="eyebrow">Exhibit B / Wolfram model exploration</div>
+        <h2>What happens at the exact deadline?</h2>
         <div class="split equal">
           <div>
+            <p>
+              <strong>7,776 finite model cases.</strong> The boundary matters:
+            </p>
             <table class="table">
               <thead>
                 <tr>
@@ -747,8 +944,8 @@
         </div>
       </section>
       <section class="slide" id="slide-7">
-        <div class="eyebrow">Lean</div>
-        <h2>Six kernel-checked theorems. A clearly bounded claim.</h2>
+        <div class="eyebrow">Exhibit C / Lean 4 kernel-checked proofs</div>
+        <h2>Six theorems.<br />Not a blank cheque.</h2>
         <div class="split equal">
           <div>
             <p>
@@ -778,8 +975,8 @@
         </div>
       </section>
       <section class="slide" id="slide-8">
-        <div class="eyebrow">Olympix</div>
-        <h2>Installed, but not yet authenticated.</h2>
+        <div class="eyebrow">Open item / Olympix access</div>
+        <h2>No scan. No green tick.</h2>
         <div class="steps">
           <div class="card">
             <h3>Installed</h3>
@@ -820,7 +1017,7 @@
       </section>
       <section class="slide" id="slide-9">
         <div class="eyebrow">ESL's software supply-chain evidence platform</div>
-        <h2>What is ESL SBOMator?</h2>
+        <h2>The contract is small.<br />Its toolchain isn't.</h2>
         <div class="split">
           <div>
             <img
@@ -829,7 +1026,7 @@
               alt="ESL SBOMator product logo"
             />
             <p>
-              A software bill of materials answers
+              <strong>ESL SBOMator</strong> builds a software bill of materials:
               <strong>what is inside the software</strong>. SBOMator connects
               that inventory to known vulnerabilities, license evidence, and
               engineering review.
@@ -874,11 +1071,11 @@
           demo. SBOMator supports evidence preparation, not certification.
         </p>
       </section>
-      <section class="slide" id="slide-10">
+      <section class="slide dark" id="slide-10">
         <div class="eyebrow">
           The actual MantiQ-Solidity report · 20 September 2026
         </div>
-        <h2>77 license gaps resolved with evidence.</h2>
+        <h2>77 unknowns.<br />77 sourced answers.</h2>
         <div class="split">
           <div>
             <div class="stats">
@@ -893,15 +1090,13 @@
               </div>
             </div>
             <p>
-              <strong>All four direct dependencies found:</strong> solc, ethers,
-              Ganache, and fast-check. Transitive development packages are
-              included.
+              <strong>Four direct dependencies:</strong> solc, ethers, Ganache,
+              fast-check, plus transitive development packages.
             </p>
             <p>
               <strong>Inventory quality gate: PASSED.</strong> All 368
-              components now have declared licenses. Exact-release metadata and
-              artifact evidence resolved the offline gaps; no warning was
-              hidden.
+              components now declare licenses. The 77 gaps were resolved using
+              exact-release metadata and artifact evidence.
             </p>
             <a
               class="cta"
@@ -937,7 +1132,7 @@
       </section>
       <section class="slide" id="slide-11">
         <div class="eyebrow">Read the findings precisely</div>
-        <h2>Seven advisories, eight component-level records.</h2>
+        <h2>The findings didn't disappear.</h2>
         <div class="split">
           <div>
             <table class="table">
@@ -1001,7 +1196,7 @@
       </section>
       <section class="slide" id="slide-12">
         <div class="eyebrow">From a package list to dependency context</div>
-        <h2>Explore the actual software dependency graph.</h2>
+        <h2>Why is that package here?</h2>
         <div class="split">
           <div>
             <p>
@@ -1046,7 +1241,7 @@
       </section>
       <section class="slide" id="slide-13">
         <div class="eyebrow">The ESL evidence handover</div>
-        <h2>Open artifacts, bounded claims, reproducible checks.</h2>
+        <h2>Don't take the slide's word for it.</h2>
         <div class="grid">
           <div class="card">
             <h3>Provenance</h3>
@@ -1087,9 +1282,9 @@
           inclusion does not imply endorsement.
         </p>
       </section>
-      <section class="slide" id="slide-14">
+      <section class="slide dark" id="slide-14">
         <div class="eyebrow">Presenter hand-off · run or replay</div>
-        <h2>Let the audience inspect the evidence.</h2>
+        <h2>Your turn.<br />Open the evidence.</h2>
         <div class="split">
           <div>
             <p>
@@ -1126,9 +1321,7 @@
       </section>
       <section class="slide" id="slide-15">
         <div class="eyebrow">Continue with ESL</div>
-        <h2>
-          Bring the engineering question.<br />Build the evidence with us.
-        </h2>
+        <h2>Which assumption would you test first?</h2>
         <div class="split equal">
           <div>
             <p class="big">
